@@ -59,6 +59,18 @@
     />
     <meta property="og:site_name" content="Sheikh Hussain Portfolio" />
     <meta property="og:locale" content="en_GB" />
+    <meta
+      name="twitter:title"
+      content="{% block twitter_title %}Sheikh Hussain | Entry-Level Web Developer{% endblock %}"
+    />
+    <meta
+      name="twitter:description"
+      content="{% block twitter_description %}Explore my software development portfolio and projects.{% endblock %}"
+    />
+    <meta
+      name="twitter:image"
+      content="{{ url_for('static', filename='media/images/og-image.png', _external=True) }}"
+    />
     <!-- json ld -->
     <script type="application/ld+json">
       {
@@ -67,6 +79,7 @@
         "name": "Sheikh Hussain",
         "url": "{{ request.host_url }},
         "jobTitle": "Entry-Level / Aspiring Web Developer",
+          "image": "https://sheikh-hussain.onrender.com/static/media/images/Sheikh_Hussain.jpg",
         "sameAs": [
           "https://github.com/sheikh-h",
           "https://linkedin.com/in/sheikh-hussain"
