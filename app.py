@@ -11,6 +11,7 @@ from flask import (
     url_for,
     flash,
     Response,
+    send_from_directory,
 )
 from dotenv import load_dotenv
 import os
@@ -304,6 +305,11 @@ def logout():
     session.clear()
     flash("Logout Successful!", "success")
     return redirect(url_for("home"))
+
+
+@app.route("/robots.txt")
+def robots():
+    return send_from_directory(app.static_folder, "robots.txt")
 
 
 @app.route("/sitemap.xml")
