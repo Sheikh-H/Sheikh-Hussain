@@ -1,2 +1,4 @@
 User-Agent: *
+Allow: /
 Disallowed: /admin/
+Sitemap: https://sheikh-hussain.onrender.com/sitemap.xml

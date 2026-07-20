@@ -10,6 +10,7 @@ from flask import (
     redirect,
     url_for,
     flash,
+    Response,
 )
 from dotenv import load_dotenv
 import os
@@ -303,6 +304,23 @@ def logout():
     session.clear()
     flash("Logout Successful!", "success")
     return redirect(url_for("home"))
+
+
+@app.route("/sitemap.xml")
+def sitemap():
+
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+    <loc>{request.url_root}</loc>
+    </url>
+    <url>
+    <loc>{request.url_root}projects</loc>
+    </url>
+    </urlset>
+    """
+
+    return Response(xml, mimetype="application/xml")
 
 
 @app.errorhandler(403)
