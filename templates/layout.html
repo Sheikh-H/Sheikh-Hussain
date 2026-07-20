@@ -63,6 +63,7 @@
       name="twitter:image"
       content="{{ url_for('static', filename='media/images/og-image.png', _external=True) }}"
     />
+    {% block head %} {% endblock head %}
     <!-- json ld -->
     <script type="application/ld+json">
       {
@@ -78,7 +79,6 @@
         ]
       }
     </script>
-    {% block head %} {% endblock head %}
   </head>
   <body>
     <header>
