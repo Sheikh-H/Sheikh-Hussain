@@ -1,0 +1,16 @@
+{% extends 'layout.html' %} {% block head %}
+<meta name="robots" content="noindex, nofollow" />
+{% endblock head %} {% block content %}
+<section id="admin-section" class="admin-section">
+  <h1>Admin Dashboard</h1>
+  <div class="admin-panel" id="admin-panel">
+    <a href="{{url_for('add_skill')}}">Add Skill</a>
+    <a href="{{url_for('add_project')}}">Add Project</a>
+    <a href="{{url_for('admin_skills')}}">Modify Skill</a>
+    <a href="{{url_for('admin_projects')}}">Modify Project</a>
+  </div>
+  <div>
+    <a href="{{url_for('logout')}}">Logout</a>
+  </div>
+</section>
+{% endblock content %}

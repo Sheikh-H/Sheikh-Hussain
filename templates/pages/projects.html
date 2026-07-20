@@ -1,0 +1,73 @@
+{% block description %} View my Python and Flask projects. {% endblock %} 
+
+{% block head %}
+  <meta name="robots" content="index, follow" />
+{% endblock head %}
+  
+{% extends 'layout.html' %} {% block content%}
+<section id="projects" class="all-projects-section">
+  <div class="all-projects-section-intro">
+    <h2>All Projects</h2>
+    <p>
+      Use the search filters and function to navigate through my projects. If
+      you have any questions, just get in touch.
+    </p>
+  </div>
+  <div class="search-filters">
+    <p>Search Projects</p>
+    <form action="{{url_for('all_projects')}}" method="GET">
+      <div class="searchbox">
+        <input
+          type="search"
+          name="search"
+          id="search"
+          placeholder="Search Projects"
+        />
+      </div>
+      <div class="tags">
+        <select name="tags" id="tags">
+          <option value="" selected>Tags</option>
+          {% for tag in tags %}
+          <option value="{{tag}}">{{tag.upper()}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <button type="submit">search</button>
+      <a href="{{url_for('all_projects')}}">Clear filter</a>
+    </form>
+  </div>
+  <div class="all-projects-grid">
+    {% for project in projects %}
+    <div class="all-project-card">
+      <div
+        class="project-image"
+        style='background-image: url("{{project.image_url}}")'
+      ></div>
+      <div class="project-info">
+        <p><strong>{{project['title'].title()}}</strong></p>
+        <p>{{project['description'].capitalize()}}</p>
+        <div class="project-tags">
+          <div class="project-tags-track">
+            {% for tag in project.tags.split(",") %}
+            <p class="project-tag">{{tag}}</p>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="project-buttons">
+          <a
+            href="{{project.github_link}}"
+            target="_blank"
+            class="project-button"
+            >Code</a
+          >
+          <a href="{{project.demo_link}}" target="_blank" class="project-button"
+            >Demo</a
+          >
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+<hr />
+{% endblock content %}

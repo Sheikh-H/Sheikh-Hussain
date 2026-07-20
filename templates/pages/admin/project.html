@@ -1,0 +1,110 @@
+{% extends 'layout.html' %} {% block head %}
+<meta name="robots" content="noindex, nofollow" />
+{% endblock head %}{% block content %}
+<section id="edit-projects-section" class="edit-projects-section">
+  <h3>Modify A Project</h3>
+  <a href="{{url_for('admin')}}">Back to dashboard</a>
+  <form
+    action="{{ url_for('modify_project', id = project.id )}}"
+    method="post"
+    enctype="multipart/form-data"
+  >
+      <input
+        type="hidden"
+        name="csrf_token"
+        value="{{ session['csrf_token'] }}">
+    <input
+      type="hidden"
+      name="project-id"
+      id="project-id"
+      value="{{project.id}}"
+    />
+    <label for="title">Project Title</label>
+    <input
+      type="text"
+      name="title"
+      id="title"
+      required
+      maxlength="31"
+      title="Enter a descriptive project title, e.g. Portfolio Website."
+      value="{{project.title}}"
+    />
+    <small class="helper">required - max characters - 30</small>
+    <label>Project Description</label>
+    <textarea
+      name="description"
+      id="description"
+      cols="10"
+      rows="10"
+      required
+      maxlength="105"
+      title="Enter a project description, e.g. a web application for a retail store."
+    >
+{{project.description}}</textarea
+    >
+    <small class="helper">required - max characters - 105</small>
+    <label for="completion">Completion Date</label>
+    <input
+      type="date"
+      name="completion"
+      id="completion"
+      required
+      value="{{project.completion}}"
+    />
+    <label for="image">Project Image</label>
+    <small class="helper"
+      >select one image - placeholder image is default</small
+    >
+    <input
+      type="file"
+      accept="image/*"
+      name="image"
+      value="{{project.image_url}}"
+    />
+    <label for="tags">Project Tags</label>
+    <input
+      type="text"
+      name="tags"
+      id="tags"
+      required
+      title="Enter some tags for the project, e.g. html, flask, python"
+      value="{{project.tags}}"
+    />
+    <small class="helper"
+      >required - use comma to separate tags - aim for 10</small
+    >
+
+    <label for="github">GitHub Link</label>
+    <input
+      type="url"
+      name="github"
+      id="github"
+      required
+      title="e.g. https://www.github.com/project-repo"
+      value="{{project.github_link}}"
+    />
+    <small class="helper">required</small>
+
+    <label for="demo">Demo Link</label>
+    <input
+      type="url"
+      name="demo"
+      id="demo"
+      required
+      title="e.g. https://www.project.com/project-link"
+      value=" {{project.demo_link}}"
+    />
+    <small class="helper">required - can be a video link on Google Drive</small>
+
+    <label for="featured">Featured?</label>
+    <small class="helper">Should the project be featured?</small>
+    <input
+      type="checkbox"
+      name="featured"
+      value="1"
+{{ "checked" if project.featured == 1 else "" }}
+    />
+    <input type="submit" class="button" />
+  </form>
+</section>
+{% endblock content %}

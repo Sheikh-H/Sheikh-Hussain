@@ -1,0 +1,33 @@
+{% extends 'layout.html' %} {% block head %}
+<meta name="robots" content="noindex, nofollow" />
+{% endblock head %}{% block content %}
+<section id="edit-projects-section" class="edit-projects-section">
+  <h3>Modify A Project</h3>
+  <a href="{{url_for('admin')}}">Back to dashboard</a>
+  {% for project in projects %}
+  <div class="project-form-item">
+    <p><strong>ID: </strong>{{project.id}}</p>
+    <p><strong>Title: </strong>{{project.title}}</p>
+    <div>
+      <form
+        action="{{ url_for('modify_project', id=project.id) }}"
+        method="GET"
+      >
+        <button type="submit">Modify</button>
+      </form>
+      <form
+        action="{{ url_for('remove_project', id=project.id) }}"
+        method="POST"
+      >
+        <input
+          type="hidden"
+          name="csrf_token"
+          value="{{ session['csrf_token'] }}"
+        />
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+{% endblock content %}

@@ -1,0 +1,39 @@
+{% extends 'layout.html' %} {% block head %}
+<meta name="robots" content="noindex, nofollow" />
+{% endblock head %}{% block content %}
+<section id="edit-skills-section" class="edit-skills-section">
+  <h3>Modify '{{skill.skill}}'</h3>
+  <a href="{{url_for('admin')}}">Back to dashboard</a>
+  <form action="{{ url_for('modify_skill', id = skill.id )}}" method="post">
+    <input type="hidden" name="skill-id" id="skill-id" value="{{skill.id}}" />
+    <input
+      type="hidden"
+      name="csrf_token"
+      value="{{ session['csrf_token'] }}"
+    />
+    <label for="skill">Skill</label>
+    <input
+      type="text"
+      name="skill"
+      id="skill"
+      required
+      maxlength="15"
+      value="{{skill.skill}}"
+    />
+    <small class="helper">required - max characters - 15</small>
+    <label for="progress">Months learning</label>
+    <input
+      type="number"
+      name="progress"
+      id="progress"
+      min="1"
+      max="36"
+      step="1"
+      required
+      value="{{skill.progress}}"
+    />
+    <small class="helper">required - months spent learning this skill</small>
+    <input type="submit" class="button" />
+  </form>
+</section>
+{% endblock content %}

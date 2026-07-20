@@ -1,0 +1,27 @@
+{% extends 'layout.html' %} {% block head %}
+<meta name="robots" content="noindex, nofollow" />
+{% endblock head %}{% block content %}
+<section id="edit-skills-section" class="edit-skills-section">
+  <h3>Modify A Skill</h3>
+  <a href="{{url_for('admin')}}">Back to dashboard</a>
+  {% for skill in skills %}
+  <div class="skill-form-item">
+    <p><strong>Id: </strong>{{skill.id}}</p>
+    <p><strong>Skill: </strong>{{skill.skill}}</p>
+    <div>
+      <form action="{{ url_for('modify_skill', id=skill.id) }}" method="GET">
+        <button type="submit">Modify</button>
+      </form>
+      <form action="{{ url_for('remove_skill', id=skill.id) }}" method="POST">
+        <input
+          type="hidden"
+          name="csrf_token"
+          value="{{ session['csrf_token'] }}"
+        />
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+{% endblock content %}

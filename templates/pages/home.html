@@ -1,0 +1,189 @@
+
+{% block head %}
+  <meta name="robots" content="index, follow" />
+{% endblock head %}
+  
+{% extends 'layout.html' %} {% block content%}
+<section class="hero-section">
+  <img
+    src="{{url_for('static', filename='media/images/Sheikh_Hussain.jpg')}}"
+    alt="Profile Photo"
+  />
+  <div class="hero-intro">
+    <div>
+      <h1>Hey! I'm Sheikh...</h1>
+      <p>I'm an aspiring full-stack web application developer.</p>
+    </div>
+    <div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 -960 960 960"
+        fill="#000000"
+      >
+        <path
+          d="m480-355 148-149q18-18 42-17.5t41 17.5q18 18 18 41.5T711-421L563-273q-35 35-83 35t-83-35L249-421q-18-18-17-42t18-41q18-18 41.5-18t41.5 18l147 149Zm0-271 148-149q18-18 42-17.5t41 18.5q18 18 18 41.5T711-691L563-543q-35 35-83 35t-83-35L249-691q-18-18-17-41.5t18-41.5q18-19 41.5-19t42.5 19l146 148Z"
+        />
+      </svg>
+    </div>
+  </div>
+</section>
+<div class="screen"></div>
+<section id="about" class="about-section">
+  <div class="about-intro hidden-right">
+    <h2>A Little About Me...</h2>
+    <p>
+      I'm an aspiring full-stack web developer who enjoys turning ideas into
+      practical web applications. As I continue developing my skills, I'm
+      building projects that automate repetitive tasks, improve business
+      workflows, and integrate with modern APIs to create meaningful solutions.
+    </p>
+  </div>
+</section>
+<div class="screen"></div>
+<section id="skills" class="skills-section">
+  <div class="skills-intro hidden-left">
+    <h2>Skills I've Gained</h2>
+    <p>
+      These cards represent how long I've been actively learning and building
+      projects with each technology. The progress bars reflect my learning
+      journey rather than an objective measure of proficiency.
+    </p>
+  </div>
+  <div class="skills-grid">
+    {% for skill in skills %}
+
+    <div class="skill-card hidden-up">
+      <div class="skill-header">
+        <div class="skill-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#003700"
+          >
+            <path
+              d="M228-269.56 17.56-480 228-690.44 309.87-609l-129 129 129 129L228-269.56Zm210.09 115.3-109.83-35.09 192.65-616.39 110.83 34.65-193.65 616.83ZM732-269.56 650.13-351l129-129-129-129L732-690.44 942.44-480 732-269.56Z"
+            />
+          </svg>
+        </div>
+        <div>
+          <p><strong>{{skill.skill}}</strong></p>
+        </div>
+        <div><p>{{skill.progress}}
+          {% if skill.progress > 1 %}
+          Months
+          {% else %}
+          Month
+          {% endif %}
+        </p></div>
+      </div>
+      <div class="skill-grade-outer">
+        <div
+          style="width: {{ (skill.progress / 36) * 100 }}%"
+          class="skill-grade-inner"
+        ></div>
+      </div>
+    </div>
+    {% endfor %}
+</section>
+<div class="screen"></div>
+<section id="projects" class="projects-section">
+  <div class="projects-section-intro">
+    <h2>Projects</h2>
+    <p>
+      Every project in this collection represents a step in my learning journey.
+      Many were built while following structured learning paths on platforms
+      such as <a href="https://roadmap.sh/" target="_blank">Roadmap.sh</a>,
+      <a href="https://www.freecodecamp.org/learn" target="_blank"
+        >FreeCodeCamp</a
+      >, and
+      <a href="https://www.theodinproject.com/" target="_blank"
+        >The Odin Project</a
+      >, allowing me to apply new concepts in practical scenarios. Each project
+      demonstrates the skills I developed at that stage, with source code
+      available on my
+      <a href="https://github.com/Sheikh-H" target="_blank">GitHub</a> and many
+      deployed online.
+    </p>
+  </div>
+  <div class="projects-grid">
+    {% for project in projects %}
+    <div class="project-card hidden-right">
+      <div
+        class="project-image"
+        style="background-image: url(&quot;{{project.image_url}}&quot;)"
+      ></div>
+      <div class="project-info">
+        <p><strong>{{project['title'].title()}}</strong></p>
+        <p>{{project['description'].capitalize()}}</p>
+        <div class="project-tags">
+          <div class="project-tags-track">
+            {% for tag in project.tags.split(",") %}
+            <p class="project-tag">{{tag}}</p>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="project-buttons">
+          <a href="{{project.github_link}}" target="_blank" class="project-button">Code</a>
+          <a href="{{project.demo_link}}" target="_blank" class="project-button">Demo</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+  <div class="all-projects">> <a href="{{url_for('all_projects')}}">All Projects</a> <</div>
+<div class="screen"></div>
+<section id="contact" class="contact-section">
+  <h2>Like what you see?</h2>
+  <p>Let's connect!</p>
+  <div class="social-icons">
+    <div>
+      <a href="https://github.com/sheikh-h" target="_blank">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="icon icon-tabler icons-tabler-filled icon-tabler-brand-github"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M5.315 2.1c.791 -.113 1.9 .145 3.333 .966l.272 .161l.16 .1l.397 -.083a13.3 13.3 0 0 1 4.59 -.08l.456 .08l.396 .083l.161 -.1c1.385 -.84 2.487 -1.17 3.322 -1.148l.164 .008l.147 .017l.076 .014l.05 .011l.144 .047a1 1 0 0 1 .53 .514a5.2 5.2 0 0 1 .397 2.91l-.047 .267l-.046 .196l.123 .163c.574 .795 .93 1.728 1.03 2.707l.023 .295l.007 .272c0 3.855 -1.659 5.883 -4.644 6.68l-.245 .061l-.132 .029l.014 .161l.008 .157l.004 .365l-.002 .213l-.003 3.834a1 1 0 0 1 -.883 .993l-.117 .007h-6a1 1 0 0 1 -.993 -.883l-.007 -.117v-.734c-1.818 .26 -3.03 -.424 -4.11 -1.878l-.535 -.766c-.28 -.396 -.455 -.579 -.589 -.644l-.048 -.019a1 1 0 0 1 .564 -1.918c.642 .188 1.074 .568 1.57 1.239l.538 .769c.76 1.079 1.36 1.459 2.609 1.191l.001 -.678l-.018 -.168a5.03 5.03 0 0 1 -.021 -.824l.017 -.185l.019 -.12l-.108 -.024c-2.976 -.71 -4.703 -2.573 -4.875 -6.139l-.01 -.31l-.004 -.292a5.6 5.6 0 0 1 .908 -3.051l.152 -.222l.122 -.163l-.045 -.196a5.2 5.2 0 0 1 .145 -2.642l.1 -.282l.106 -.253a1 1 0 0 1 .529 -.514l.144 -.047l.154 -.03z"
+          /></svg></a>
+    </div>
+    <div>
+      <a href="https://www.linkedin.com/in/sheikh-hussain" target="_blank">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="icon icon-tabler icons-tabler-filled icon-tabler-brand-linkedin"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M17 2a5 5 0 0 1 5 5v10a5 5 0 0 1 -5 5h-10a5 5 0 0 1 -5 -5v-10a5 5 0 0 1 5 -5zm-9 8a1 1 0 0 0 -1 1v5a1 1 0 0 0 2 0v-5a1 1 0 0 0 -1 -1m6 0a3 3 0 0 0 -1.168 .236l-.125 .057a1 1 0 0 0 -1.707 .707v5a1 1 0 0 0 2 0v-3a1 1 0 0 1 2 0v3a1 1 0 0 0 2 0v-3a3 3 0 0 0 -3 -3m-6 -3a1 1 0 0 0 -.993 .883l-.007 .127a1 1 0 0 0 1.993 .117l.007 -.127a1 1 0 0 0 -1 -1"
+          /></svg></a>
+    </div>
+    <div>
+      <a href="mailto:sheikh.hussain1155@gmail.com" target="_blank">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-send"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M10 14l11 -11" />
+          <path
+            d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5"
+          /></svg></a>
+    </div>
+  </div>
+</section>
+<div class="screen"></div>
+<hr />
+{% endblock content %}
