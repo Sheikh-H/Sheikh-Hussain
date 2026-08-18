@@ -38,10 +38,8 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# Take off later - Only used during development
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
-# Uploading project images to online platform
 cloudinary.config(
     cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
     api_key=os.getenv("CLOUDINARY_API_KEY"),
@@ -50,7 +48,6 @@ cloudinary.config(
 )
 
 
-# session management:
 app.config.update(
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_COOKIE_SECURE=True,
