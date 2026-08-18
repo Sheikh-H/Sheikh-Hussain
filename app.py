@@ -1,38 +1,40 @@
-from datetime import timedelta
-from flask_session import Session
-import secrets
-from flask import (
-    Flask,
-    render_template,
-    request,
-    session,
-    abort,
-    redirect,
-    url_for,
-    flash,
-    Response,
-    send_from_directory,
-)
-from dotenv import load_dotenv
 import os
+import secrets
+from datetime import timedelta
+
 import cloudinary
 import cloudinary.uploader
+from dotenv import load_dotenv
+from flask import (
+    Flask,
+    Response,
+    abort,
+    flash,
+    redirect,
+    render_template,
+    request,
+    send_from_directory,
+    session,
+    url_for,
+)
+
+from flask_session import Session
+from services.auth import csrf_required, login_required, login_user
 from services.database import (
-    get_skills,
-    insert_skill,
-    get_projects,
-    insert_project,
-    get_skill,
-    update_project,
-    update_skill,
+    all_tags,
+    delete_project,
     delete_skill,
     get_project,
-    delete_project,
+    get_projects,
+    get_skill,
+    get_skills,
     get_user,
+    insert_project,
+    insert_skill,
     search_projects,
-    all_tags,
+    update_project,
+    update_skill,
 )
-from services.auth import login_user, login_required, csrf_required
 
 load_dotenv()
 
