@@ -14,7 +14,9 @@ from flask import (
     url_for,
 )
 
+from database.models import *
 from extensions import limiter
+from services import fetch_all_projects, fetch_all_skills
 
 main = Blueprint("main", __name__)
 
@@ -23,5 +25,9 @@ main = Blueprint("main", __name__)
 @limiter.limit("5 per day", methods=["POST"])
 def home():
     page_title = "Sheikh Hussain | Full Stack Web Developer"
-
-    return render_template("", page_title=page_title)
+    projects = fetch_all_projects()
+    skills = fetch_all_skills()
+    sheikh = fetch_my_details()
+    return render_template(
+        "home.html", page_title=page_title, projects=projects, skills=skills, sheikh=sheikh
+    )

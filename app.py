@@ -23,22 +23,18 @@ from security import init_security
 
 def create_app():
     app = Flask(__name__)
-
     app.config.from_object(Config)
-
     db.init_app(app)
     migrate.init_app(app, db)
     csrf.init_app(app)
     limiter.init_app(app)
     server_session.init_app(app)
-
     init_cloudinary(app)
     init_security(app)
-
+    
     app.register_blueprint(main)
-
+    
     app.register_error_handler(CSRFError, csrf_error)
-
     app.register_error_handler(400, bad_request)
     app.register_error_handler(403, forbidden_page)
     app.register_error_handler(404, not_found)

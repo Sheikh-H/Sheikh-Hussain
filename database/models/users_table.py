@@ -9,6 +9,9 @@ from extensions import db
 class User(db.Model):
     __tablename__ = "Users_Table"
     user_id: Mapped[int] = mapped_column(primary_key=True)
+    image_url: Mapped[str] = mapped_column(
+        String(), nullable=False, default="https://placehold.net/600x600.png"
+    )
     fname: Mapped[str] = mapped_column(String(100), nullable=False)
     sname: Mapped[str] = mapped_column(String(100), nullable=False)
     username: Mapped[str] = mapped_column(String(20), nullable=False)

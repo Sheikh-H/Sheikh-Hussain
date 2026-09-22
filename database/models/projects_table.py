@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 
-from sqlalchemy import DateTime, String
+from sqlalchemy import DateTime, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column
 
 from extensions import db
@@ -18,6 +18,7 @@ class Project(db.Model):
     github: Mapped[str] = mapped_column(String(), nullable=False)
     live: Mapped[str | None] = mapped_column(String(), nullable=True)
     tags: Mapped[str | None] = mapped_column(String(), nullable=True)
+    featured: Mapped[int] = mapped_column(Integer(), nullable=False, default=0)
     added: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         nullable=False,

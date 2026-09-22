@@ -12,6 +12,7 @@ def seed_data():
     if existing:
         return
     user = User(
+        image_url="https://placehold.net/600x600.png",
         fname="Sheikh",
         sname="Hussain",
         username="sheikh-hussain",

@@ -10,6 +10,8 @@ class Config:
     SECRET_KEY = os.environ.get("SECRET_KEY")
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL", "sqlite:///portfolio.db")
     MAX_CONTENT_LENGTH = 5 * 1024 * 1024
+    MAX_IMAGE_WIDTH = 600
+    MAX_IMAGE_HEIGHT = 600
     SESSION_TYPE = "filesystem"
     SESSION_COOKIE_SECURE = True
     SESSION_COOKIE_SAMESITE = "LAX"
