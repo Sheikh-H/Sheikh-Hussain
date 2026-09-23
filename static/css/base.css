@@ -74,8 +74,8 @@ html.dark-mode {
   font-family: "Fredoka", sans-serif;
 }
 
-html{
-    font-size: 16px;
+html {
+  font-size: 16px;
 }
 
 h1,
@@ -85,16 +85,62 @@ h4,
 h5,
 h6 {
   font-family: "Capriola", sans-serif;
-  color: var(--colour-text);
+  color: var(--colour-primary-dark);
   letter-spacing: 1px;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--colour-background);
+}
+
+main {
+  margin: 0 5px;
+}
+
+.show-on-desktop {
+  display: none;
+}
+
+.show-on-tablet {
+  display: none;
+}
+
+.show-on-mobile {
+  display: flex;
 }
 
 /* Tablet */
 
 @media screen and (min-width: 700px) and (max-width: 999px) {
+  .show-on-desktop {
+    display: none;
+  }
+
+  .show-on-tablet {
+    display: flex;
+  }
+
+  .show-on-mobile {
+    display: none;
+  }
 }
 
 /* Desktop */
 
 @media screen and (min-width: 1000px) {
+  main {
+    margin: 0 7rem;
+  }
+  .show-on-desktop {
+    display: flex;
+  }
+
+  .show-on-tablet {
+    display: none;
+  }
+
+  .show-on-mobile {
+    display: none;
+  }
 }

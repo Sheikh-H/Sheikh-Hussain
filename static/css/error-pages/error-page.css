@@ -1,0 +1,30 @@
+.error-page-section {
+  height: 200vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.error-page h1 {
+  font-size: 4rem;
+}
+
+.error-page p {
+  font-size: 1.5rem;
+}
+
+.error-page small {
+  font-size: 1rem;
+}
+
+.error-page a {
+  font-size: 1rem;
+}

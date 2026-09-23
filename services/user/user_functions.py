@@ -10,7 +10,6 @@ def fetch_my_details() -> dict | None:
     sheikh = {
         "github": user.github,
         "linkedin": user.linkedin,
-        "image_url": user.image_url,
         "email": user.email,
         "fname": user.fname,
         "sname": user.sname,

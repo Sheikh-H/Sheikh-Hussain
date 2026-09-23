@@ -1,1 +1,1 @@
-import { form } from "forms/login-form";
+import "./components/night-mode.js";

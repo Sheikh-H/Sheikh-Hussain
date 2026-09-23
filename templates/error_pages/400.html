@@ -1,0 +1,11 @@
+{% extends 'layout.html' %} {% block content %}
+<section id="error-page-section" class="error-page-section">
+    <h2>400 - Unable to process request!</h2>
+    {% if reason %}
+    <p>{{ reason }}</p>
+    {% else %}
+    <p>Your session may be expired, please login to try again.</p>
+    {% endif %}
+    <a href="{{url_for('main.home')}}">Return to home page</a>
+</section>
+{% endblock content %}
