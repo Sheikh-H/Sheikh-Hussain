@@ -1,5 +1,3 @@
-from datetime import datetime, timezone
-
 from flask import (
     Blueprint,
     Response,
@@ -16,7 +14,7 @@ from flask import (
 
 from database.models import *
 from extensions import limiter
-from services import fetch_all_projects, fetch_all_skills
+from services import fetch_all_projects, fetch_all_skills, fetch_my_details
 
 main = Blueprint("main", __name__)
 

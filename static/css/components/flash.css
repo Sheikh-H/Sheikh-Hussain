@@ -1,0 +1,42 @@
+
+.flash-container {
+  position: fixed;
+  top: 100px;
+  z-index: 1000;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+.flash {
+  margin-bottom: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  padding: 3px;
+  align-items: center;
+}
+
+.flash.success {
+  color: green;
+  background-color: white;
+}
+
+.flash.error {
+  color: red;
+  background-color: white;
+}
+/* Tablet */
+
+@media screen and (min-width: 700px) and (max-width: 999px) {
+
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1000px) {
+
+}

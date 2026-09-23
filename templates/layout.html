@@ -4,6 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='media/favicon.ico')}}" />
+    <meta name="theme-color" content="#003700" />
+    <link rel="canonical" href="{{ request.host_url }}" />
+    <meta name="author" content="Sheikh Hussain" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="color-scheme" content="light dark" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sheikh Hussain | Entry-Level Software Developer" />
+    <meta property="og:description"
+        content="Explore my software development portfolio, projects, skills, and contact information." />
+    <meta property="og:url" content="{{ request.host_url }}" />
+    <meta property="og:image" content="{{ url_for('static', filename='media/og-image.png', _external=True) }}" />
+    <meta property="og:site_name" content="Sheikh Hussain Portfolio" />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:title" content="Sheikh Hussain | Entry-Level Full Stack Web Developer" />
+    <meta name="twitter:description" content="Explore my software development portfolio and projects." />
+    <meta name="twitter:image" content="{{ url_for('static', filename='media/og-image.png', _external=True) }}" />
+    <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Sheikh Hussain",
+            "url": "{{ request.host_url }}",
+            "jobTitle": "Entry-Level / Aspiring Full Stack Web Developer",
+              "image": "https://sheikh-hussain.onrender.com/static/media/images/Sheikh_Hussain.jpg",
+            "sameAs": [
+              "https://github.com/sheikh-h",
+              "https://linkedin.com/in/sheikh-hussain"
+            ]
+          }
+        </script>
     <title>{{ page_title }}</title>
     {% block headers %}
     {% endblock headers %}

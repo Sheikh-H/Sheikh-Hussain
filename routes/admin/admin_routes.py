@@ -19,7 +19,10 @@ def login():
             session.permanent = True
             session["username"] = logged_in.username
             return redirect(url_for("admin.home"))
-    return render_template("home.html", page_title=page_title)
+        else:
+            flash("Unable to login, try again!", "error")
+            return redirect(url_for("admin.login"))
+    return render_template("admin/login.html", page_title=page_title)
 
 
 @admin.route("/admin/home", methods=["GET"])
@@ -27,4 +30,4 @@ def login():
 @login_required
 def home():
     page_title = "Admin Dashboard"
-    return render_template("admin-home.html", page_title=page_title)
+    return render_template("admin/admin-home.html", page_title=page_title)
