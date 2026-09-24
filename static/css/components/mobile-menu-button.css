@@ -1,0 +1,43 @@
+.mobile-menu-button {
+  width: 35px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.mobile-menu-button > span {
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 100%;
+  transition: all 0.5s cubic-bezier(0, -0.85, 0.95, -1.12);
+}
+
+.mobile-menu-button.active span:nth-child(1) {
+  width: 90%;
+}
+.mobile-menu-button.active span:nth-child(2) {
+  width: 50%;
+}
+.mobile-menu-button.active span:nth-child(3) {
+  width: 25%;
+}
+
+/* Tablet */
+
+@media screen and (min-width: 700px) and (max-width: 999px) {
+  .mobile-menu-button {
+    display: none;
+  }
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1000px) {
+  .mobile-menu-button {
+    display: none;
+  }
+}

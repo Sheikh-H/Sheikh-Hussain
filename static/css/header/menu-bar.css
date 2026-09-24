@@ -6,6 +6,32 @@
   display: none;
 }
 
+/* Tablet */
+
+@media screen and (min-width: 700px) and (max-width: 999px) {
+  .menu-bar {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+  }
+  .menu-bar nav {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  .menu-item {
+    text-decoration: none;
+    color: var(--colour-text);
+    font-size: 1.5rem;
+  }
+
+  .menu-item.contact {
+    padding: 7px;
+    background-color: var(--colour-primary-light);
+    border-radius: 10px;
+  }
+}
+
 /* Desktop */
 
 @media screen and (min-width: 1000px) {
