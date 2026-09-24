@@ -1,14 +1,16 @@
 .header {
-  padding: 5px;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: var(--colour-background);
+  transition: all 1s ease-in-out;
 }
 
 .header-logo {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
   text-decoration: none;
 }
 
@@ -17,17 +19,20 @@
 }
 
 .header-logo img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 100%;
 }
 
-
+.header.active {
+  position: fixed;
+  width: 100%;
+}
 /* Tablet */
 
 @media screen and (min-width: 700px) and (max-width: 999px) {
   .header-logo h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -35,7 +40,7 @@
 
 @media screen and (min-width: 1000px) {
   .header-logo h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   .header {
     height: 100px;

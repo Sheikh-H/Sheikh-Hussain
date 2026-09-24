@@ -78,6 +78,10 @@ html {
   font-size: 16px;
 }
 
+body {
+  transition: all 1s ease-in-out;
+}
+
 h1,
 h2,
 h3,
@@ -90,7 +94,7 @@ h6 {
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: none;
   background-color: var(--colour-background);
 }
 
