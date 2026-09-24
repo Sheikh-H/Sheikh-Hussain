@@ -1,33 +1,24 @@
 .dark-mode-button {
   width: 40px;
+  height: 40px;
   border: var(--border-primary);
   box-shadow: 0 0 5px lightgreen;
   border-radius: 100%;
-  height: 40px;
   z-index: 1;
   position: fixed;
   right: 20px;
   bottom: 50px;
-  background-image: url("/static/media/night.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  background: url("/static/media/night.png") no-repeat center / contain;
   transition: all 0.3s ease-in-out;
 }
 
 .dark-mode-button.active {
-  background-image: url("/static/media/day.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  background: url("/static/media/day.png") no-repeat center / contain;
 }
 
 /* Tablet */
 
 @media screen and (min-width: 700px) and (max-width: 999px) {
-  .dark-mode-button {
-    width: 50px;
-  }
 }
 
 /* Desktop */
@@ -35,5 +26,35 @@
 @media screen and (min-width: 1000px) {
   .dark-mode-button {
     width: 50px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: none;
+    background-image: none;
+    display: flex;
+    position: static;
+    background-color: lightgray;
+    align-items: center;
+    padding: 3px;
+  }
+
+  .dark-mode-button.active {
+    background: none;
+    background-color: darkgray;
+  }
+
+  .dark-mode-inner-button {
+    border-radius: 5px;
+    width: 40%;
+    height: 100%;
+    background: url("/static/media/night.png") no-repeat center / contain;
+    transition: all 0.7s cubic-bezier(0, 1.89, 0.86, -0.46);
+    background-color: white;
+  }
+
+  .dark-mode-inner-button.active {
+    background: url("/static/media/day.png") no-repeat center / contain;
+    transform: translateX(160%);
+    background-color: black;
   }
 }

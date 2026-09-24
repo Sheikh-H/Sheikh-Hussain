@@ -86,9 +86,18 @@
 /* Tablet */
 
 @media screen and (min-width: 700px) and (max-width: 999px) {
+  .header-logo h1 {
+    font-size: 2rem;
+  }
 }
 
 /* Desktop */
 
 @media screen and (min-width: 1000px) {
+  .header-logo h1 {
+    font-size: 2.5rem;
+  }
+  .header {
+    height: 100px;
+  }
 }
