@@ -3,6 +3,8 @@ const mobileMenuNav = document.querySelector(".menu-nav");
 const mobileMenuItem = document.querySelector(".menu-item");
 const mobileMenuHeader = document.querySelector(".header");
 
+const menuItems = document.querySelectorAll(".menu-item");
+
 function toggleMobileMenu() {
   if (mobileMenuButton) {
     mobileMenuButton.addEventListener("click", () => {
@@ -29,4 +31,19 @@ function menuOpen() {
   });
 }
 
+function menuClose() {
+  menuItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      if (mobileMenuButton.classList.contains("active")) {
+        mobileMenuButton.classList.remove("active");
+        mobileMenuNav.classList.remove("active");
+        mobileMenuItem.classList.remove("active");
+        mobileMenuHeader.classList.remove("active");
+      }
+    });
+  });
+}
+
 toggleMobileMenu();
+menuOpen();
+menuClose();
