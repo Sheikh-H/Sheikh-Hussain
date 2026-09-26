@@ -3,13 +3,15 @@
   flex-direction: column;
   justify-content: space-evenly;
   height: 70vh;
-  margin-top: 20px;
   width: 100%;
 }
 
 .intro-top {
-  color: var(--colour-grey);
   font-size: 1.5rem;
+}
+
+.intro-top p {
+  color: var(--colour-grey);
 }
 
 .intro-mid {
@@ -89,7 +91,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 40px;
-    height: 90vh;
+    height: 85vh;
     width: 100%;
   }
 
@@ -139,23 +141,55 @@
 /* Desktop */
 
 @media screen and (min-width: 1000px) {
-  .intro-description {
-    margin-top: 10px;
-    font-size: 1.2rem;
-    color: var(--colour-text);
-    width: 50%;
+  .intro-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 70vh;
+    margin-top: none;
+    width: 100%;
   }
-  .intro-mid-inner-right {
-    width: 30%;
-    font-size: clamp(1vw, 3vw, 7vw);
+
+  .intro-top {
+    color: var(--colour-grey);
+    font-size: 1.5rem;
+  }
+
+  .intro-mid {
+    width: 100%;
     display: flex;
     align-items: center;
   }
 
   .intro-mid-inner-left {
-    width: 70%;
-  }
-  .intro-mid {
     width: 100%;
+    font-size: 1.5rem;
+    display: flex;
+  }
+
+  .intro-mid-inner-right img {
+    width: 100%;
+  }
+
+  .intro-bottom {
+    color: var(--colour-primary);
+    font-size: 1.2rem;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+
+  .open-button {
+    border-radius: 100%;
+    width: 10px;
+    height: 10px;
+    background-color: var(--colour-primary-dark);
+    animation: glow 1s infinite ease-in-out;
+  }
+
+  .intro-description {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: var(--colour-text);
   }
 }
