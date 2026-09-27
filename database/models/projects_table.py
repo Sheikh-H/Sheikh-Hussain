@@ -14,7 +14,6 @@ class Project(db.Model):
     )
     title: Mapped[str] = mapped_column(String(100), nullable=False)
     description: Mapped[str] = mapped_column(String(255), nullable=False)
-    markdown: Mapped[str | None] = mapped_column(String(), nullable=True)
     github: Mapped[str] = mapped_column(String(), nullable=False)
     live: Mapped[str | None] = mapped_column(String(), nullable=True)
     tags: Mapped[str | None] = mapped_column(String(), nullable=True)

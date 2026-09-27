@@ -144,7 +144,7 @@
   .intro-section {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     height: 70vh;
     margin-top: none;
     width: 100%;

@@ -106,6 +106,7 @@ p {
 main {
   margin: 0 5px;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 section {
@@ -122,6 +123,17 @@ section {
 
 .show-on-mobile {
   display: flex;
+}
+
+.hidden-up {
+  opacity: 0;
+  transform: translateY(150px);
+  transition: all 0.7s ease-in;
+}
+
+.hidden-up.active {
+  opacity: 1;
+  transform: translateY(0px);
 }
 
 /* Tablet */

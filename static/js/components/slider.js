@@ -1,3 +1,3 @@
 const slider = document.querySelector(".technologies");
 
-slider.innerHTML += technologies.innerHTML;
+slider.innerHTML += slider.innerHTML;
