@@ -1,11 +1,14 @@
 {% extends 'layout.html' %} {% block content %}
 <section id="error-page-section" class="error-page-section ">
-    <h2>413 - Request Entity Too Large!</h2>
-    {% if reason %}
-    <p>{{ reason }}</p>
-    {% else %}
-    <p>Please try again.</p>
-    {% endif %}
-    <a href="{{url_for('main.home')}}">Return to home page</a>
+    <div class="error-page">
+        <h2>413!</h2>
+        <p>Content Too Large!</p>
+        {% if reason %}
+        <small>{{ reason }}</small>
+        {% else %}
+        <small>Please try again.</small>
+        {% endif %}
+        <a href="{{url_for('main.home')}}">Return to home page</a>
+    </div>
 </section>
 {% endblock content %}

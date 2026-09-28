@@ -1,7 +1,10 @@
 {% extends 'layout.html' %} {% block content %}
 <section id="error-page-section" class="error-page-section">
-    <h2>405 - Method Not Allowed!</h2>
-    <p>The method is not allowed for the requested URL.</p>
-    <a href="{{url_for('main.home')}}">Return to home page</a>
+    <div class="error-page">
+        <h2>405</h2>
+        <p>Method Not Allowed!</p>
+        <small>The method is not allowed for the requested URL.</small>
+        <a href="{{url_for('main.home')}}">Return to home page</a>
+    </div>
 </section>
 {% endblock content %}
