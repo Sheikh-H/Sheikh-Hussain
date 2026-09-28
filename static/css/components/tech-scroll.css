@@ -1,0 +1,36 @@
+.technologies {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.tech-item {
+  flex-shrink: 0;
+  width: 150px;
+  padding: 20px;
+  text-align: center;
+  color: var(--colour-text);
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Tablet */
+
+@media screen and (min-width: 700px) and (max-width: 999px) {
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1000px) {
+}
