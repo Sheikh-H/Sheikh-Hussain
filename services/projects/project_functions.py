@@ -2,7 +2,7 @@ from database.models import Project
 from extensions import db
 
 
-def fetch_all_projects() -> list[Project]:
+def fetch_top_projects() -> list[Project]:
     query = (
         db.select(Project)
         .order_by(Project.added.desc(), Project.featured.desc())
@@ -10,3 +10,6 @@ def fetch_all_projects() -> list[Project]:
     )
     projects = db.session.execute(query).scalars().all()
     return list(projects)
+
+def fetch_all_projects() -> list[Project]:
+    query = db.select(Project).order_by()
