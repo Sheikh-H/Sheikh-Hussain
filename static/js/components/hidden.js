@@ -3,6 +3,8 @@ const intro = document.querySelector(".intro-section");
 const projects = document.querySelectorAll(".project");
 const contact = document.querySelector(".contact-section");
 const skills = document.querySelectorAll(".skill-card");
+const skillCards = document.querySelectorAll(".skill-card");
+const projectCards = document.querySelectorAll(".project-item");
 
 const observer = new IntersectionObserver(
   (entries) => {
@@ -17,10 +19,13 @@ const observer = new IntersectionObserver(
   },
 );
 
-observer.observe(intro);
-observer.observe(about);
+if (intro) {
+  observer.observe(intro);
+}
 
-const skillCards = document.querySelectorAll(".skill-card");
+if (about) {
+  observer.observe(about);
+}
 
 const skillObserver = new IntersectionObserver(
   (entries) => {
@@ -32,7 +37,7 @@ const skillObserver = new IntersectionObserver(
         entry.target.classList.add("active");
         setTimeout(() => {
           bar.style.width = `${percent}%`;
-        }, 200);
+        }, 500);
         skillObserver.unobserve(entry.target);
       }
     });
@@ -42,15 +47,30 @@ const skillObserver = new IntersectionObserver(
   },
 );
 
-skillCards.forEach((card) => {
-  skillObserver.observe(card);
-});
+if (skillCards) {
+  skillCards.forEach((card) => {
+    skillObserver.observe(card);
+  });
+}
 
-skills.forEach((skill) => {
-  skillObserver.observe(skill);
-});
+if (skills) {
+  skills.forEach((skill) => {
+    skillObserver.observe(skill);
+  });
+}
 
-projects.forEach((project) => {
-  observer.observe(project);
-});
-observer.observe(contact);
+if (projects) {
+  projects.forEach((project) => {
+    observer.observe(project);
+  });
+}
+
+if (contact) {
+  observer.observe(contact);
+}
+
+if (projectCards) {
+  projectCards.forEach((item) => {
+    observer.observe(item);
+  });
+}

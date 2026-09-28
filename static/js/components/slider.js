@@ -1,3 +1,5 @@
 const slider = document.querySelector(".technologies");
 
-slider.innerHTML += slider.innerHTML;
+if (slider) {
+  slider.innerHTML += slider.innerHTML;
+}

@@ -5,7 +5,59 @@
 
 {% block content %}
 <section class="all-projects-section">
-    <p>All projects</p>
-
+    <h1>All projects</h1>
+    <p>All my projects are uploaded to my GitHub where you can download/clone the repo and use it as you wish!</p>
+    <br>
+    <br>
+    <div class="project-search-box">
+        <!-- function to be added -->
+    </div>
+    <div class="projects-grid">
+        {% for project in projects %}
+        <div class="project-item hidden-up">
+            <img src="{{project.image_url}}" alt="{{project.title}}">
+            <div class="project-description">
+                <p><b>{{project.title.title()}}</b></p>
+                <small>{{project.description.capitalize()}}</small>
+                <div class="project-tags2">
+                    {% set tags = project.tags.split(", ") %}
+                    {% for tag in tags %}
+                    <div class="tag">
+                        {% if tag.upper() == "HTML" %}
+                        <small><abbr title="Hyper Text Markup Language">{{tag.upper()}}</abbr></small>
+                        {% elif tag.upper() == "CSS" %}
+                        <small><abbr title="Cascading Style Sheets">{{tag.upper()}}</abbr></small>
+                        {% elif tag.upper() == "JS" %}
+                        <small><abbr title="JavaScript">{{tag.upper()}}</abbr></small>
+                        {% elif tag.upper() == "Flask" %}
+                        <small><abbr title="Flask Framework">{{tag.upper()}}</abbr></small>
+                        {% elif tag.upper() == "SQL" %}
+                        <small><abbr title="Structured Query Language">{{tag.upper()}}</abbr></small>
+                        {% elif tag.upper() == "MONGODB" %}
+                        <small><abbr title="Mongo Database">{{tag.upper()}}</abbr></small>
+                        {% else %}
+                        <small><abbr title="">{{tag.upper()}}</abbr></small>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="project-links">
+                    {% if project.live %}
+                    <a href="{{project.live}}" target="_blank">
+                        <p><b>Visit Site</b></p>
+                    </a>
+                    {% endif %}
+                    {% if project.github %}
+                    <a href="{{project.github}}" target="_blank">
+                        <p><b>Get Code</b></p>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </section>
+<br>
+<br>
 {% endblock content %}

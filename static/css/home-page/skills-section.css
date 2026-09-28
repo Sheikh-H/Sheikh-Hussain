@@ -67,7 +67,8 @@
 /* Tablet */
 @media screen and (min-width: 700px) and (max-width: 999px) {
   .skills {
-    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -75,7 +76,7 @@
 @media screen and (min-width: 1000px) {
   .skills {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     flex-direction: column;
     gap: 10px;
     padding: 5px;

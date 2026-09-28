@@ -142,7 +142,7 @@
         <div class="project-header">
             <div class="project-icon"></div>
             <div>
-                <small>My Experience</small>
+                <small>Featured Work</small>
                 <h2>Projects</h2>
             </div>
         </div>
@@ -163,12 +163,16 @@
                 {% endfor %}
             </div>
             <div class="project-links">
+                {% if project.live %}
                 <a href="{{project.live}}" target="_blank">
                     <p><b>Live Demo</b></p>
                 </a>
+                {% endif %}
+                {% if project.github %}
                 <a href="{{project.github}}" target="_blank">
                     <p><b>Source Code</b></p>
                 </a>
+                {% endif %}
             </div>
         </div>
         {% endfor %}
