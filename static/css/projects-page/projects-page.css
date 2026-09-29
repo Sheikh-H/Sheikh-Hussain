@@ -34,6 +34,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
+  color: var(--colour-text);
 }
 
 .project-tags2 {
@@ -44,6 +45,23 @@
   border-radius: 5px;
   box-shadow: 0 0 5px lightgrey;
   gap: 10px;
+}
+
+.live-button {
+  width: 10px;
+  background-color: var(--colour-secondary);
+  height: 10px;
+  border-radius: 100%;
+  animation: livesite 1s ease-in-out infinite;
+}
+
+@keyframes livesite {
+  0% {
+    box-shadow: 0 0 0px var(--colour-secondary);
+  }
+  100% {
+    box-shadow: 0 0 10px var(--colour-secondary);
+  }
 }
 
 /* Tablet */
@@ -75,7 +93,7 @@
   .project-item {
     background-color: var(--colour-surface);
     box-shadow: var(--shadow-medium);
-    padding: 20px;
+    padding: 10px;
     border-radius: 5px;
   }
 }

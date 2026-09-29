@@ -76,7 +76,10 @@
 }
 
 .project-links a {
+  display: flex;
   text-decoration: none;
+  align-items: center;
+  gap: 3px;
 }
 
 .all-projects-link {
