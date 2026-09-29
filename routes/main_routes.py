@@ -43,8 +43,15 @@ def home():
 @main.route("/all-projects", methods=["GET"])
 def all_projects():
     title = "Sheikh Hussain | My Projects"
-    projects = fetch_all_projects()
-    return render_template("all-projects.html", projects=projects, title=title)
+    page = request.args.get("page", default=1, type=int)
+    query = db.select(Project).order_by(
+        Project.featured.desc(), Project.completed.desc()
+    )
+    pagination = db.paginate(query, page=page, per_page=6, error_out=False)
+    projects = pagination.items
+    return render_template(
+        "all-projects.html", projects=projects, title=title, pagination=pagination
+    )
 
 
 @main.route("/add-like/<int:project_id>", methods=["POST"])

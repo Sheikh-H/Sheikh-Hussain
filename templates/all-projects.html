@@ -21,7 +21,6 @@
                     <div class="project-like" data-project-id="{{project.project_id}}" data-csrf="{{ csrf_token() }}">
                         <p class="inner-like">
                             {% if project.likes == 0 %}
-
                             {% elif project.likes < 10 %} {{project.likes}} {% else %} 9+ {% endif %} </p>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="48 -912 864 864">
                                     <path
@@ -70,7 +69,6 @@
                     {% if project.live %}
                     <a href="{{project.live}}" target="_blank">
                         <div class="live-button">
-
                         </div>
                         <p><b>Visit Site</b></p>
                     </a>
@@ -84,6 +82,31 @@
             </div>
         </div>
         {% endfor %}
+    </div>
+    <div class="pagination">
+        {% if pagination.has_prev %}
+        <a href="{{ url_for('main.all_projects', page=pagination.prev_num) }}">
+            <p>&lt;Previous</p>
+        </a>
+        {% endif %}
+        {% for page_num in pagination.iter_pages() %}
+        {% if page_num %}
+        {% if page_num == pagination.page %}
+        <span class="current-page">{{ page_num }}</span>
+        {% else %}
+        <a href="{{ url_for('main.all_projects', page=page_num) }}">
+            {{ page_num }}
+        </a>
+        {% endif %}
+        {% else %}
+        <span>...</span>
+        {% endif %}
+        {% endfor %}
+        {% if pagination.has_next %}
+        <a href="{{ url_for('main.all_projects', page=pagination.next_num) }}">
+            <p>Next&gt;</p>
+        </a>
+        {% endif %}
     </div>
 </section>
 <br>
