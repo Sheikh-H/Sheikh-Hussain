@@ -8,6 +8,7 @@
 <section class="all-projects-section">
     <h1>All projects</h1>
     <p>All my projects are uploaded to my GitHub where you can download/clone the repo and use it as you wish!</p>
+    <small>Leave a like on my projects!</small>
     <br>
     <br>
     <div class="projects-grid">
@@ -15,7 +16,19 @@
         <div class="project-item hidden-up">
             <img src="{{project.image_url}}" alt="{{project.title}}">
             <div class="project-description">
-                <p><b>{{project.title.title()}}</b></p>
+                <div class="project-title-div">
+                    <p><b>{{project.title.title()}}</b></p>
+                    <div class="project-like" data-project-id="{{project.project_id}}" data-csrf="{{ csrf_token() }}">
+                        <p class="inner-like">
+                            {% if project.likes == 0 %}
+
+                            {% elif project.likes < 10 %} {{project.likes}} {% else %} 9+ {% endif %} </p>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="48 -912 864 864">
+                                    <path
+                                        d="m480-144-50-45q-100-89-165-152.5t-102.5-113Q125-504 110.5-545T96-629q0-89 61-150t150-61q49 0 95 21t78 59q32-38 78-59t95-21q89 0 150 61t61 150q0 43-14 83t-51.5 89q-37.5 49-103 113.5T528-187l-48 43Zm0-97q93-83 153-141.5t95.5-102Q764-528 778-562t14-67q0-59-40-99t-99-40q-35 0-65.5 14.5T535-713l-35 41h-40l-35-41q-22-26-53.5-40.5T307-768q-59 0-99 40t-40 99q0 33 13 65.5t47.5 75.5q34.5 43 95 102T480-241Zm0-264Z" />
+                                </svg>
+                    </div>
+                </div>
                 <small>{{project.description.capitalize()}}</small>
                 <div class="project-tags2">
                     {% set tags = project.tags.split(", ") %}
@@ -27,12 +40,26 @@
                         <small><abbr title="Cascading Style Sheets">{{tag.upper()}}</abbr></small>
                         {% elif tag.upper() == "JS" %}
                         <small><abbr title="JavaScript">{{tag.upper()}}</abbr></small>
-                        {% elif tag.upper() == "Flask" %}
+                        {% elif tag.upper() == "FLASK" %}
                         <small><abbr title="Flask Framework">{{tag.upper()}}</abbr></small>
                         {% elif tag.upper() == "SQL" %}
                         <small><abbr title="Structured Query Language">{{tag.upper()}}</abbr></small>
                         {% elif tag.upper() == "MONGODB" %}
                         <small><abbr title="Mongo Database">{{tag.upper()}}</abbr></small>
+                        {% elif tag.upper() == "CLI" %}
+                        <small><abbr title="Command Line Interface">{{tag.upper()}}</abbr></small>
+                        {% elif tag.upper() == "REDIS" %}
+                        <small><abbr title="Redis - Server Side Database">{{tag.upper()}}</abbr></small>
+                        {% elif tag.upper() == "API" %}
+                        <small><abbr title="Application Programming Interface">{{tag.upper()}}</abbr></small>
+                        {% elif tag.upper() == "CSV" %}
+                        <small><abbr title="Comma-Separated Values">{{tag.upper()}}</abbr></small>
+                        {% elif tag.upper() == "THEME" %}
+                        <small><abbr title="Night Mode">{{tag.upper()}}</abbr></small>
+                        {% elif tag.upper() == "JWT" %}
+                        <small><abbr title="JSON Web Token">{{tag.upper()}}</abbr></small>
+                        {% elif tag.upper() == "JSON" %}
+                        <small><abbr title="JavaScript Object Notation">{{tag.upper()}}</abbr></small>
                         {% else %}
                         <small><abbr title="">{{tag.upper()}}</abbr></small>
                         {% endif %}

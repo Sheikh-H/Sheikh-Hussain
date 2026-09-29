@@ -11,9 +11,10 @@ from flask import (
     session,
     url_for,
 )
+from sqlalchemy import select
 
 from database.models import *
-from extensions import limiter
+from extensions import db, limiter
 from services import (
     fetch_all_projects,
     fetch_all_skills,
@@ -44,3 +45,19 @@ def all_projects():
     title = "Sheikh Hussain | My Projects"
     projects = fetch_all_projects()
     return render_template("all-projects.html", projects=projects, title=title)
+
+
+@main.route("/add-like/<int:project_id>", methods=["POST"])
+def add_like(project_id):
+    query = select(Project).where(Project.project_id == project_id)
+    project = db.session.execute(query).scalars().one_or_none()
+    if not project:
+        abort(404)
+    try:
+        project.likes += 1
+        db.session.commit()
+        return redirect(url_for("main.all_projects"))
+    except Exception as e:
+        print(e)
+        db.session.rollback()
+    return redirect(url_for("main.all_projects"))

@@ -150,7 +150,14 @@
     <div class="projects">
         {% for project in projects %}
         <div class="project hidden-up">
-            <p><b>{{project.title.title()}}</b></p>
+            <div class="project-title-div">
+                <p><b>{{project.title.title()}}</b></p>
+                <div class="project-like">
+                    <p>
+                        {% if project.likes < 10 %} {{project.likes}} {% else %} 9+ {% endif %} {% if project.likes==1%}
+                            like {% else %} likes {% endif %} </p>
+                </div>
+            </div>
             <p>{{project.description.capitalize()}}</p>
             <div class="project-tags">
                 {% set tags = project.tags.split(", ")%}

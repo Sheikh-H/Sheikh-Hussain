@@ -19,6 +19,7 @@ class Project(db.Model):
     tags: Mapped[str | None] = mapped_column(String(), nullable=True)
     featured: Mapped[int] = mapped_column(Integer(), nullable=False, default=0)
     completed: Mapped[date | None] = mapped_column(Date(), nullable=True)
+    likes: Mapped[int] = mapped_column(Integer(), nullable=False, default=0)
     added: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         nullable=False,

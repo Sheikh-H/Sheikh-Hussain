@@ -8,6 +8,8 @@
   flex-direction: column;
   gap: 15px;
   padding: 5px;
+  border: 1px solid var(--colour-grey-light);
+  border-radius: 10px;
 }
 
 .project-item {
@@ -54,6 +56,36 @@
   height: 10px;
   border-radius: 100%;
   animation: livesite 1s ease-in-out infinite;
+}
+
+.project-title-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-like {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-like svg {
+  width: 25px;
+  height: 25px;
+  fill: var(--colour-grey-light);
+}
+
+.project-like:hover svg {
+  fill: #ea3323;
+}
+
+.inner-like {
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  font-size: 10px;
+  font-weight: bold;
 }
 
 @keyframes livesite {
