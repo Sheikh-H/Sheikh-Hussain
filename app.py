@@ -8,6 +8,7 @@ from database.models import *
 from database.seed import seed_data
 from extensions import csrf, db, init_cloudinary, limiter, migrate, server_session
 from routes import *
+from routes import admin
 from routes.error import (
     bad_request,
     csrf_error,
@@ -33,6 +34,7 @@ def create_app():
     init_security(app)
     
     app.register_blueprint(main)
+    app.register_blueprint(admin)
     
     app.register_error_handler(CSRFError, csrf_error)
     app.register_error_handler(400, bad_request)

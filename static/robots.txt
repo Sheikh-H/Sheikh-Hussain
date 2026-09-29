@@ -3,3 +3,4 @@ Allow: /
 
 Disallow: /add-like/
 Disallow: /admin/
+Disallow: /admin/login

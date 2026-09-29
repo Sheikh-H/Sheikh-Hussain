@@ -32,11 +32,8 @@
   --glass-login-border: rgba(0, 55, 0, 0.31);
   --flash-success: rgba(0, 128, 0, 0.7);
   --flash-error: rgba(255, 165, 0, 0.7);
-  --flash-error-border: rgb(136, 89, 0);
   --social-icon-size: 40px;
   --footer-icon-size: 25px;
-  --hr-width: 85%;
-  --footer-bottom-font-size: 0.8rem;
 }
 
 html.dark-mode {
