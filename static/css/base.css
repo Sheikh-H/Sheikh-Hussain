@@ -18,22 +18,12 @@
   --scrollbar-thumb: var(--colour-primary);
   --scrollbar-track: transparent;
   --glass-green: rgba(0, 55, 0, 0.21);
-  --transition-fast: 0.4s;
-  --transition-normal: 0.5s ease-in-out;
-  --transition-slow: 1s ease-in-out;
-  --colour-tag-background: rgba(250, 235, 215, 0.5);
-  --colour-tag: rgba(0, 128, 0, 0.3);
-  --colour-fade: rgba(249, 248, 242, 0);
   --colour-search-background: rgba(211, 211, 211, 0.5);
   --form-height: 30px;
   --form-radius: 5px;
   --panel-radius: 10px;
   --glass-login: rgba(0, 55, 0, 0.35);
   --glass-login-border: rgba(0, 55, 0, 0.31);
-  --flash-success: rgba(0, 128, 0, 0.7);
-  --flash-error: rgba(255, 165, 0, 0.7);
-  --social-icon-size: 40px;
-  --footer-icon-size: 25px;
 }
 
 html.dark-mode {
@@ -54,12 +44,7 @@ html.dark-mode {
   --shadow-medium: 0 0 5px rgba(0, 0, 0, 0.6);
   --scrollbar-thumb: #8fdb8f;
   --glass-green: rgba(143, 219, 143, 0.15);
-  --colour-tag-background: rgba(255, 255, 255, 0.08);
-  --colour-tag: rgba(99, 211, 99, 0.35);
-  --colour-fade: rgba(18, 18, 18, 0);
   --colour-search-background: rgba(255, 255, 255, 0.08);
-  --flash-success: rgba(34, 197, 94, 0.7);
-  --flash-error: rgba(249, 22, 22, 0.7);
 }
 
 * {
