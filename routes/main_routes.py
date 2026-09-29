@@ -48,6 +48,7 @@ def all_projects():
 
 
 @main.route("/add-like/<int:project_id>", methods=["POST"])
+@limiter.limit("5 per day", methods=["POST"])
 def add_like(project_id):
     query = select(Project).where(Project.project_id == project_id)
     project = db.session.execute(query).scalars().one_or_none()
