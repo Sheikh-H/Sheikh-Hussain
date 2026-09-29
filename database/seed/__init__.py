@@ -1,1 +1,0 @@
-from .seed_data import *
