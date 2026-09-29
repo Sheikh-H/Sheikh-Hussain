@@ -27,6 +27,7 @@ def login():
             session.clear()
             session.permanent = True
             session["username"] = logged_in.username
+            flash("Login Successful!", "success")
             return redirect(url_for("admin.home"))
         else:
             flash("Unable to login, try again!", "error")

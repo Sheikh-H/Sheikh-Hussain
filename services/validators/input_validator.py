@@ -1,7 +1,7 @@
 import re
 from datetime import date, datetime, time
 
-invalid_characters = {"/", "|", "^", "$", "{", "}"}
+invalid_characters = {"|", "^", "$", "{", "}"}
 date_pattern = r"^\d{4}-\d{2}-\d{2}$"
 date_pattern = r"^\d{4}-\d{2}-\d{2}$"
 time_pattern = r"^\d{2}:\d{2}:\d{2}$"
@@ -23,7 +23,7 @@ def validate_password(value: str) -> str | None:
             return None
     if len(value) > 255:
         return None
-    if len(value) < 13:
+    if len(value) < 10:
         return None
     return value
 
