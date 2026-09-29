@@ -1,22 +1,18 @@
 from flask import (
     Blueprint,
-    Response,
     abort,
-    current_app,
-    flash,
     redirect,
     render_template,
     request,
     send_from_directory,
-    session,
     url_for,
+    current_app,
 )
 from sqlalchemy import select
 
 from database.models import *
 from extensions import db, limiter
 from services import (
-    fetch_all_projects,
     fetch_all_skills,
     fetch_my_details,
     fetch_top_projects,
@@ -69,3 +65,10 @@ def add_like(project_id):
         print(e)
         db.session.rollback()
     return redirect(url_for("main.all_projects"))
+
+
+@main.route("/robots.txt")
+def robots_txt():
+    return send_from_directory(current_app.static_folder, "robots.txt")
+
+

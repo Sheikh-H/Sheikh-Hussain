@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Disallow: /add-like/
+Disallow: /admin/
