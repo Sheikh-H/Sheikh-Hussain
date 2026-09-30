@@ -1,5 +1,18 @@
 .project-view-section {
-  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-view-section img {
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+}
+
+.project-view-section form {
+  width: 100%;
 }
 /* Tablet */
 

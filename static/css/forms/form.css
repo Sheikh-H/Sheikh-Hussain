@@ -1,4 +1,3 @@
-
 .login-form {
   display: flex;
   flex-direction: column;
@@ -44,6 +43,40 @@ form input {
 }
 
 form input:focus {
+  outline: none;
+}
+
+.form-input-textarea {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid var(--colour-grey);
+  height: 150px;
+  align-items: center;
+  padding: 5px;
+  gap: 5px;
+  border-radius: 5px;
+}
+
+.form-input-textarea-icon {
+  display: flex;
+  gap: 5px;
+}
+
+.form-input-textarea-icon p {
+  color: black;
+}
+
+.form-input-textarea-icon svg {
+  fill: var(--colour-secondary);
+}
+
+.form-input-textarea textarea {
+  width: 100%;
+  height: 100%;
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
   outline: none;
 }
 

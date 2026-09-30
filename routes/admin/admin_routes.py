@@ -98,9 +98,22 @@ def all_projects():
 
 
 @admin.route("/admin/project/<int:project_id>", methods=["GET", "POST"])
-@limiter.limit("5 per day", methods=["POST"])
+@limiter.limit("10 per day", methods=["POST"])
 @login_required
 def project_page(project_id):
     project = fetch_project_by_id(project_id)
     title = f"Project: {project.title.upper()}"
-    return render_template("admin/project-page.html", title=title, project=project)
+    if request.method == "POST":
+        data = request.form.to_dict()
+        image = request.files.get("image") if request.files.get("image") else None
+        data["image"] = image
+        data["featured"] = 1 if request.form.get("featured") == "on" else 0
+        data["project_id"] = project_id
+        updated = update_project(data)
+        if updated:
+            flash("Project updated!", "success")
+            return redirect(url_for("admin.project_page", project_id=project_id))
+        else:
+            flash("Unable to update!", "error")
+            return redirect(url_for("admin.project_page", project_id=project_id))
+    return render_template("admin/project-view.html", title=title, project=project)
