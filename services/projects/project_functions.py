@@ -43,6 +43,9 @@ def insert_new_project(data: dict) -> bool:
     live = validate_input(data.get("link", ""))
     tags = validate_input(data.get("tags", "").upper())
     tags = ", ".join(tag.strip() for tag in tags.split(",") if tag.strip())
+    if len(tags.split(",")) > 4:
+        flash("Please use 4 tags onlys!", "error")
+        return False
     featured = data.get("featured", 0)
     completed = validate_date(data.get("completed", today))
     if not all([title, description, github, tags, completed]):
