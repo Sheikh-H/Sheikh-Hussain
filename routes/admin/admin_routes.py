@@ -57,8 +57,13 @@ def home():
     title = "Admin Page"
     likes = fetch_all_likes()
     projects = len(fetch_all_projects())
+    skills = len(fetch_all_skills())
     return render_template(
-        "admin/admin-home.html", title=title, likes=likes, projects=projects
+        "admin/admin-home.html",
+        title=title,
+        likes=likes,
+        projects=projects,
+        skills=skills,
     )
 
 
