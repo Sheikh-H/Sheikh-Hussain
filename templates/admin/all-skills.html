@@ -12,8 +12,13 @@
     <br>
     <div class="skills-grid">
         {% for skill in skills %}
-        <a class="skill-item" href="{{url_for('admin.skill_page', skill_id=skill.skill_id)}}">
-            {{skill.skill}}
+        <a class="skill" href="{{url_for('admin.skill_page', skill_id=skill.skill_id)}}">
+            <p><b>{{skill.skill.upper()}}</b></p>
+            {% if skill.duration > 1 %}
+            <p>{{skill.duration}} Months</p>
+            {% else %}
+            <p>{{skill.duration}} Month</p>
+            {% endif %}
         </a>
         {% endfor %}
     </div>

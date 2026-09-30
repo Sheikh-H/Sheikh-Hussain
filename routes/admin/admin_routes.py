@@ -149,13 +149,12 @@ def add_skill():
 
 
 @admin.route("/admin/skills", methods=["GET"])
-@limiter.limit("5 per day")
 @login_required
 def all_skills():
     title = "All skills"
     page = request.args.get("page", default=1, type=int)
     query = db.select(Skill).order_by(Skill.added.desc())
-    pagination = db.paginate(query, per_page=3, page=page, error_out=False)
+    pagination = db.paginate(query, per_page=9, page=page, error_out=False)
     skills = pagination.items
     return render_template(
         "admin/all-skills.html", title=title, skills=skills, pagination=pagination
@@ -177,7 +176,7 @@ def skill_page(skill_id):
             return redirect(url_for("admin.skill_page", skill_id=skill_id))
         flash("Unable to update skill!", "error")
         return redirect(url_for("admin.skill_page", skill_id=skill_id))
-    return render_template("admin/update-skill.html", title=title, skill=skill)
+    return render_template("admin/skill-view.html", title=title, skill=skill)
 
 
 @admin.route("/admin/skill/<int:skill_id>/delete", methods=["POST"])
