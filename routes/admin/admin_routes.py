@@ -178,3 +178,15 @@ def skill_page(skill_id):
         flash("Unable to update skill!", "error")
         return redirect(url_for("admin.skill_page", skill_id=skill_id))
     return render_template("admin/update-skill.html", title=title, skill=skill)
+
+
+@admin.route("/admin/skill/<int:skill_id>/delete", methods=["POST"])
+@limiter.limit("3 per day", methods=["POST"])
+@login_required
+def delete_skill(skill_id):
+    success = remove_skill(skill_id)
+    if success:
+        flash("Skill deleted!", "success")
+        return redirect(url_for("admin.all_skills"))
+    flash("Unable to delete skill!", "error")
+    return redirect(url_for("admin.skill_page", skill_id=skill_id))

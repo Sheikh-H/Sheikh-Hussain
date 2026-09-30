@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 
 from flask import flash
-from sqlalchemy import insert
+from sqlalchemy import delete, insert
 
 from database.models import Skill
 from extensions import db
@@ -71,6 +71,19 @@ def update_a_skill(data: dict) -> bool:
         skill.description = description
         skill.duration = duration
         skill.updated = today
+        db.session.commit()
+        return True
+    except Exception as e:
+        print(e)
+        db.session.rollback()
+        return False
+
+
+def remove_skill(skill_id: int) -> bool:
+    skill = fetch_skill_by_id(skill_id)
+    try:
+        query = delete(Skill).where(Skill.skill_id == skill.skill_id)
+        db.session.execute(query)
         db.session.commit()
         return True
     except Exception as e:
