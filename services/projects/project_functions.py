@@ -42,10 +42,10 @@ def insert_new_project(data: dict) -> bool:
     live = validate_input(data.get("link", ""))
     tags = validate_input(data.get("tags", "").rstrip(",").strip().upper())
     featured = data.get("featured", 0)
-    completed = validate_date(data.get("completed", ))
+    completed = validate_date(data.get("completed", ""))
     if not all([title, description, github, live, tags, completed]):
         return False
-    image_url = ""
+    image_url = "https://placehold.net/500x500.png"
     if data.get("image"):
         image_url = image_uploader(data.get("image"), f"Projects/{title}")
         if image_url is None:

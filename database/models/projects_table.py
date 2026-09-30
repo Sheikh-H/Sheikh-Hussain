@@ -18,7 +18,9 @@ class Project(db.Model):
     live: Mapped[str | None] = mapped_column(String(), nullable=True)
     tags: Mapped[str | None] = mapped_column(String(), nullable=True)
     featured: Mapped[int] = mapped_column(Integer(), nullable=False, default=0)
-    completed: Mapped[date | None] = mapped_column(Date(), nullable=True)
+    completed: Mapped[date] = mapped_column(
+        Date(), nullable=False, default=lambda: datetime.now(timezone.utc).date()
+    )
     likes: Mapped[int] = mapped_column(Integer(), nullable=False, default=0)
     added: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
