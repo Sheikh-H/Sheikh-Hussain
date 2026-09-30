@@ -1,3 +1,5 @@
+from datetime import datetime, timezone
+
 from flask import (
     Blueprint,
     abort,
@@ -61,6 +63,7 @@ def logout():
 @limiter.limit("5 per day", methods=["POST"])
 def add_project():
     title = "Add Project"
+    today = datetime.now(timezone.utc).date()
     if request.method == "POST":
         data = request.form.to_dict()
         data["image"] = request.files.get("image")
@@ -72,4 +75,4 @@ def add_project():
         else:
             flash("Unable to add project!", "error")
             return redirect(url_for("admin.add_project"))
-    return render_template("admin/add-project.html", title=title)
+    return render_template("admin/add-project.html", title=title, today=today)

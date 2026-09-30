@@ -37,25 +37,22 @@ def validate_input(value: str) -> str | None:
     return value
 
 
-def validate_date(value: str) -> str | None:
+def validate_date(value: str) -> date | None:
     try:
-        date.fromisoformat(value)
-        return value
+        return date.fromisoformat(value)
     except ValueError:
         return None
 
 
-def validate_time(value: str) -> str | None:
+def validate_time(value: str) -> time | None:
     try:
-        time.fromisoformat(value)
-        return value
+        return time.fromisoformat(value)
     except ValueError:
         return None
 
 
-def validate_datetime(value: str) -> str | None:
+def validate_datetime(value: str) -> datetime | None:
     try:
-        datetime.fromisoformat(value)
-        return value
+        return datetime.fromisoformat(value)
     except ValueError:
         return None

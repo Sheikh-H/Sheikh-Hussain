@@ -1,12 +1,12 @@
 from flask import (
     Blueprint,
     abort,
+    current_app,
     redirect,
     render_template,
     request,
     send_from_directory,
     url_for,
-    current_app,
 )
 from sqlalchemy import select
 
@@ -40,9 +40,7 @@ def home():
 def all_projects():
     title = "Sheikh Hussain | My Projects"
     page = request.args.get("page", default=1, type=int)
-    query = db.select(Project).order_by(
-        Project.featured.desc(), Project.completed.desc()
-    )
+    query = db.select(Project).order_by(Project.added.desc())
     pagination = db.paginate(query, page=page, per_page=6, error_out=False)
     projects = pagination.items
     return render_template(
@@ -70,5 +68,3 @@ def add_like(project_id):
 @main.route("/robots.txt")
 def robots_txt():
     return send_from_directory(current_app.static_folder, "robots.txt")
-
-

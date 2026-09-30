@@ -1,3 +1,6 @@
+from datetime import datetime, timezone
+
+from flask import flash
 from sqlalchemy import insert
 
 from database.models import Project
@@ -6,12 +9,11 @@ from services.validators.input_validator import validate_date, validate_input
 
 from ..uploader import image_uploader
 
-from datetime import datetime
 
 def fetch_top_projects() -> list[Project]:
     query = (
         db.select(Project)
-        .order_by(Project.added.desc(), Project.featured.desc())
+        .order_by(Project.featured.desc(), Project.likes.desc(), Project.added.desc())
         .limit(4)
     )
     projects = db.session.execute(query).scalars().all()
@@ -19,9 +21,7 @@ def fetch_top_projects() -> list[Project]:
 
 
 def fetch_all_projects() -> list[Project]:
-    query = db.select(Project).order_by(
-        Project.featured.desc(), Project.completed.desc()
-    )
+    query = db.select(Project).order_by(Project.added.desc())
     projects = db.session.execute(query).scalars().all()
     return list(projects)
 
@@ -36,26 +36,33 @@ def fetch_all_likes() -> int:
 
 
 def insert_new_project(data: dict) -> bool:
+    today = datetime.now(timezone.utc).date()
     title = validate_input(data.get("title", ""))
     description = validate_input(data.get("description", ""))
     github = validate_input(data.get("github", ""))
     live = validate_input(data.get("link", ""))
-    tags = validate_input(data.get("tags", "").rstrip(",").strip().upper())
+    tags = validate_input(data.get("tags", "").upper())
+    tags = ", ".join(tag.strip() for tag in tags.split(",") if tag.strip())
     featured = data.get("featured", 0)
-    completed = validate_date(data.get("completed", ""))
-    if not all([title, description, github, live, tags, completed]):
+    completed = validate_date(data.get("completed", today))
+    if not all([title, description, github, tags, completed]):
+        flash("Please enter all required fields!", "error")
+        return False
+    if completed > today:
+        flash("Please enter a valid date!", "error")
         return False
     image_url = "https://placehold.net/500x500.png"
     if data.get("image"):
         image_url = image_uploader(data.get("image"), f"Projects/{title}")
         if image_url is None:
-            image_url = ""
+            image_url = "https://placehold.net/500x500.png"
     try:
         query = insert(Project).values(
             title=title,
             description=description,
             github=github,
             live=live,
+            likes=0,
             tags=tags,
             featured=featured,
             completed=completed,

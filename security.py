@@ -9,7 +9,7 @@ def init_security(app):
             "img-src 'self' "
             "https://placehold.co "
             "https://placehold.net "
-            "https://res.cloudinary.com/dcnpmdfzl; "
+            "https://res.cloudinary.com/dcnpmdfzl/; "
         )
         response.headers["X-Content-Type-Options"] = "nosniff"
         response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
