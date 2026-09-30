@@ -19,5 +19,8 @@
 @import url("./home-page/projects-section.css");
 @import url("./home-page/contact-section.css");
 
-@import url("./admin-pages/login-page.css");
 @import url("./projects-page/projects-page.css");
+
+@import url("./admin-pages/login-page.css");
+@import url("./admin-pages/home-page.css");
+@import url("./admin-pages/add-project.css");

@@ -1,0 +1,31 @@
+.admin-home-section {
+  text-align: center;
+}
+
+.admin-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.option {
+  border: var(--border-grey);
+  border-radius: 5px;
+  padding: 10px;
+  color: var(--colour-text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--glass-green);
+  text-decoration: none;
+}
+
+/* Tablet */
+
+@media screen and (min-width: 700px) and (max-width: 999px) {
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1000px) {
+}

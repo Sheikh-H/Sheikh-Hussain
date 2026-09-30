@@ -1,0 +1,37 @@
+.add-project-section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-project-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+}
+
+.featured {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: none;
+  background-color: none;
+  height: 40px;
+  font-family: inherit;
+  font-size: inherit;
+  align-items: center;
+}
+
+.featured input {
+  height: 100%;
+}
+/* Tablet */
+
+@media screen and (min-width: 700px) and (max-width: 999px) {
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1000px) {
+}

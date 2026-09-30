@@ -5,7 +5,20 @@
 {% endblock headers %}
 
 {% block content %}
-<section>
-    <h1>admin Page</h1>
+<br>
+<section class="admin-home-section">
+    <h2>Admin Page</h2>
+    <br>
+    <p><b>Total Project Likes:</b> {{likes}}</p>
+    <p><b>Total Projects Uploaded:</b> {{projects}}</p>
+    <br>
+    <div class="admin-options">
+        <a class="option" href="{{url_for('admin.add_project')}}">
+            <p>Add Project</p>
+        </a>
+        <a class="option" href="">
+            <p>Projects</p>
+        </a>
+    </div>
 </section>
 {% endblock content %}
