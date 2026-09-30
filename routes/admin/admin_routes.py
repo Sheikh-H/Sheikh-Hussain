@@ -15,6 +15,7 @@ from database.models import *
 from extensions import limiter
 from services.auth import *
 from services.projects import *
+from services.skills import *
 
 admin = Blueprint("admin", __name__)
 
@@ -83,8 +84,7 @@ def add_project():
     return render_template("admin/add-project.html", title=title, today=today)
 
 
-@admin.route("/admin/all-projects", methods=["GET", "POST"])
-@limiter.limit("5 per day", methods=["POST"])
+@admin.route("/admin/all-projects", methods=["GET"])
 @login_required
 def all_projects():
     title = "All Projects"
@@ -129,3 +129,52 @@ def delete_project(project_id):
         return redirect(url_for("admin.all_projects"))
     flash("Unable to delete!", "error")
     return redirect(url_for("admin.project_page", project_id=project_id))
+
+
+@admin.route("/admin/add-skill", methods=["GET", "POST"])
+@limiter.limit("5 per day", methods=["POST"])
+@login_required
+def add_skill():
+    title = "Add new skill"
+    if request.method == "POST":
+        data = request.form.to_dict()
+        success = add_new_skill(data)
+        if success:
+            flash("New skill added!", "success")
+            return redirect(url_for("admin.home"))
+        else:
+            flash("Unable to add skill!", "error")
+            return redirect(url_for("admin.add_skill"))
+    return render_template("admin/add-skill.html", title=title)
+
+
+@admin.route("/admin/skills", methods=["GET"])
+@limiter.limit("5 per day")
+@login_required
+def all_skills():
+    title = "All skills"
+    page = request.args.get("page", default=1, type=int)
+    query = db.select(Skill).order_by(Skill.added.desc())
+    pagination = db.paginate(query, per_page=3, page=page, error_out=False)
+    skills = pagination.items
+    return render_template(
+        "admin/all-skills.html", title=title, skills=skills, pagination=pagination
+    )
+
+
+@admin.route("/admin/skill/<int:skill_id>", methods=["GET", "POST"])
+@limiter.limit("5 per day", methods=["POST"])
+@login_required
+def skill_page(skill_id):
+    skill = fetch_skill_by_id(skill_id)
+    title = f"Skill: {skill.skill.upper()}"
+    if request.method == "POST":
+        data = request.form.to_dict()
+        data["skill_id"] = skill_id
+        success = update_a_skill(data)
+        if success:
+            flash("Skill updated!", "success")
+            return redirect(url_for("admin.skill_page", skill_id=skill_id))
+        flash("Unable to update skill!", "error")
+        return redirect(url_for("admin.skill_page", skill_id=skill_id))
+    return render_template("admin/update-skill.html", title=title, skill=skill)

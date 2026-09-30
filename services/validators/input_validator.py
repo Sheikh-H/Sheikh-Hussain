@@ -56,3 +56,11 @@ def validate_datetime(value: str) -> datetime | None:
         return datetime.fromisoformat(value)
     except ValueError:
         return None
+
+
+def validate_integer(value: int | str) -> int | None:
+    if value.isdigit():
+        return int(value)
+    if isinstance(value, int):
+        return value
+    return None

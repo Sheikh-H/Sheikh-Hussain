@@ -1,4 +1,4 @@
-.login-form {
+form {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -17,6 +17,7 @@
   justify-content: center;
   gap: 5px;
   border-radius: 5px;
+  padding: 5px;
 }
 
 .form-input input {
@@ -115,10 +116,26 @@ form input:focus {
   padding: 5px;
   width: 100%;
 }
+
+.featured {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: none;
+  background-color: none;
+  height: 40px;
+  font-family: inherit;
+  font-size: inherit;
+  align-items: center;
+}
+
+.featured input {
+  height: 100%;
+}
 /* Tablet */
 
 @media screen and (min-width: 700px) and (max-width: 999px) {
-  .login-form {
+  form {
     width: 80%;
     gap: 20px;
   }
@@ -127,7 +144,7 @@ form input:focus {
 /* Desktop */
 
 @media screen and (min-width: 1000px) {
-  .login-form {
+  form {
     width: 70%;
     gap: 20px;
   }

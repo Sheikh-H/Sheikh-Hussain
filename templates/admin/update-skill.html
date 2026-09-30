@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block headers %}
+<meta name="robots" content="noindex, nofollow">
+{% endblock headers %}
+
+{% block content %}
+<br>
+<br>
+<section class="update-skill-section">
+    <h2>Update a skill</h2>
+    <br>
+    <form action="{{url_for('admin.skill_page', skill_id=skill.skill_id)}}" method="post">
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+        <div class="form-input">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path
+                    d="M280-80q-17 0-28.5-11.5T240-120v-132q-57-52-88.5-121.5T120-520q0-150 105-255t255-105q125 0 221.5 73.5T827-615l52 205q5 19-7 34.5T840-360h-80v120q0 33-23.5 56.5T680-160h-80v40q0 17-11.5 28.5T560-80H280Zm200-240q17 0 28.5-11.5T520-360q0-17-11.5-28.5T480-400q-17 0-28.5 11.5T440-360q0 17 11.5 28.5T480-320Zm1-128q11 0 20.5-7.5T514-476q3-12 9.5-23.5T544-526q32-35 42-53t10-41q0-42-32.5-71T483-720q-32 0-60.5 15.5T377-662q-6 10-.5 21t16.5 16q11 5 21.5 1.5T433-638q10-12 23-18.5t27-6.5q22 0 36.5 12t14.5 31q0 16-8.5 30.5T492-549q-19 20-27.5 35.5T453-478q-2 12 6.5 21t21.5 9Z" />
+            </svg>
+            <input type="text" name="skill" id="skill" maxlength="50" minlength="1"
+                placeholder="{{skill.skill.title()}}">
+        </div>
+        <div class="form-input">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path
+                    d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm120-160h200q17 0 28.5-11.5T560-320q0-17-11.5-28.5T520-360H320q-17 0-28.5 11.5T280-320q0 17 11.5 28.5T320-280Zm0-160h320q17 0 28.5-11.5T680-480q0-17-11.5-28.5T640-520H320q-17 0-28.5 11.5T280-480q0 17 11.5 28.5T320-440Zm0-160h320q17 0 28.5-11.5T680-640q0-17-11.5-28.5T640-680H320q-17 0-28.5 11.5T280-640q0 17 11.5 28.5T320-600Z" />
+            </svg>
+            <input type="text" name="description" placeholder="{{skill.description}}">
+        </div>
+        <div class="form-input">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">
+                <path
+                    d="M320-160h320v-120q0-66-47-113t-113-47q-66 0-113 47t-47 113v120ZM200-80q-17 0-28.5-11.5T160-120q0-17 11.5-28.5T200-160h40v-120q0-61 28.5-114.5T348-480q-51-32-79.5-85.5T240-680v-120h-40q-17 0-28.5-11.5T160-840q0-17 11.5-28.5T200-880h560q17 0 28.5 11.5T800-840q0 17-11.5 28.5T760-800h-40v120q0 61-28.5 114.5T612-480q51 32 79.5 85.5T720-280v120h40q17 0 28.5 11.5T800-120q0 17-11.5 28.5T760-80H200Z" />
+            </svg>
+            <input type="number" name="duration"  min="1" max="36" maxlength="2" step="1"
+                placeholder="{{skill.duration}}">
+        </div>
+        <button type="submit" class="submit-button">Update Skill</button>
+    </form>
+</section>
+{% endblock content %}

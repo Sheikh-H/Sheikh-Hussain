@@ -10,7 +10,7 @@
     <br>
     <h2>{{project.title.title()}}</h2>
     <form action="{{url_for('admin.project_page', project_id = project.project_id)}}" method="post"
-        enctype="multipart/form-data" class="add-project-form">
+        enctype="multipart/form-data">
         <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
         <div class="form-input">
             <p><b>Image:</b></p>
