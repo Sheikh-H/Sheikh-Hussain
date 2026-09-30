@@ -117,3 +117,15 @@ def project_page(project_id):
             flash("Unable to update!", "error")
             return redirect(url_for("admin.project_page", project_id=project_id))
     return render_template("admin/project-view.html", title=title, project=project)
+
+
+@admin.route("/admin/project/<int:project_id>/delete", methods=["POST"])
+@limiter.limit("3 per day", methods=["POST"])
+@login_required
+def delete_project(project_id):
+    success = remove_project(project_id)
+    if success:
+        flash("Project deleted!", "success")
+        return redirect(url_for("admin.all_projects"))
+    flash("Unable to delete!", "error")
+    return redirect(url_for("admin.project_page", project_id=project_id))

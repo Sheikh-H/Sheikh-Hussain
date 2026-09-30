@@ -14,6 +14,8 @@
 .project-view-section form {
   width: 100%;
 }
+
+
 /* Tablet */
 
 @media screen and (min-width: 700px) and (max-width: 999px) {

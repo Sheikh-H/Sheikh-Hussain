@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 
 from flask import flash
-from sqlalchemy import insert
+from sqlalchemy import delete, insert
 
 from database.models import Project
 from extensions import db
@@ -149,6 +149,19 @@ def update_project(data: dict) -> bool:
         project.completed = completed
         project.image_url = image_url
         project.updated = today
+        db.session.commit()
+        return True
+    except Exception as e:
+        print(e)
+        db.session.rollback()
+        return False
+
+
+def remove_project(project_id: int) -> bool:
+    project = fetch_project_by_id(project_id)
+    try:
+        query = delete(Project).where(Project.project_id == project.project_id)
+        db.session.execute(query)
         db.session.commit()
         return True
     except Exception as e:
