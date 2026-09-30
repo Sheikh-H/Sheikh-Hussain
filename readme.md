@@ -1,42 +1,47 @@
 # 🌱 Personal Portfolio: Full-Stack Flask Web Application
 
-<p align="center"> <b>A full-stack personal portfolio website built with Flask, SQLAlchemy, JavaScript, HTML, CSS, and an online PostgreSQL database.</b><br> Built as both a portfolio and a practical project for developing my backend, database, JavaScript, security, and full-stack development skills. </p>
+**A full-stack personal portfolio website built with Flask, SQLAlchemy, JavaScript, HTML, CSS and PostgreSQL.**
+
+Built as both my personal portfolio and a practical project for developing my backend, database, JavaScript, security and full-stack development skills.
+
 
 ---
 
 ## 📘 Project Overview
 
-This repository contains my personal portfolio website, built as a **full-stack web application** rather than a simple static portfolio.
+This repository contains my personal portfolio website, which I rebuilt as a **full-stack web application** rather than keeping it as a collection of static pages.
 
-The original version of my portfolio was built primarily with **HTML, CSS and JavaScript** and was hosted through GitHub Pages. While that worked well for presenting my work, updating the website meant manually changing the source code whenever I wanted to add a project, update my skills or change other information.
+My original portfolio was built mainly with **HTML, CSS and JavaScript** and hosted through GitHub Pages. It did the job, but making changes meant going into the source files whenever I wanted to add a project, update my skills or change any of the information on the site.
 
-For this version, I wanted to take the project further and turn it into something closer to a real-world web application. Instead of hardcoding everything into HTML, I built a backend using **Python and Flask**, introduced a database, created an administrator area and connected the different parts of the application together.
+For this version, I wanted to build something that was easier to manage and gave me more experience with backend development. I introduced **Python and Flask**, added a database, created an administrator area and separated different parts of the application so they could work together rather than having everything written directly into the HTML.
 
-This version was also an important learning project for me because it was my **first time working with an online database connection through Supabase**. Moving away from keeping everything locally and learning how an application communicates with an online PostgreSQL database was one of the areas I wanted to gain practical experience with.
+One of the biggest changes for me was using **Supabase and PostgreSQL**. This was my first time connecting one of my projects to an online database, so it gave me the opportunity to learn how an application communicates with a remote database instead of relying entirely on local storage.
 
-Another major focus of this version was **JavaScript**. I wanted to spend more time understanding how JavaScript can be used alongside Flask and server-rendered HTML to make a website more interactive, rather than relying entirely on the backend for everything.
+I also wanted to make **JavaScript** a much bigger part of the project. Rather than using it only for small frontend effects, I spent more time using it alongside Flask and the server-rendered pages to add interaction and improve the overall experience.
 
-The result is a portfolio application where projects and skills can be stored in a database, displayed dynamically through Jinja templates, managed through an administrator interface and updated without having to manually rewrite the public-facing pages.
+The result is a portfolio where projects and skills are stored in a database and loaded dynamically through **Jinja templates**, while the administrator area allows me to manage that content without having to manually edit the public-facing pages.
 
-The project is still a personal learning project and is something I expect to continue improving as I learn more about full-stack development, security, databases and application architecture.
+This is still a project I consider to be a work in progress. As I continue learning more about full-stack development, databases, security and application structure, I expect the portfolio to continue changing and improving with me.
 
 ---
 
 ## 🚀 Old vs New
 
-This project represents a significant step forward from my original portfolio. The aim was not simply to add more technologies for the sake of it, but to learn how the different parts of a web application fit together.
+The current portfolio is quite different from my original version. I rebuilt it to get more hands-on experience with the backend side of web development and to better understand how the different parts of a full-stack application fit together.
 
 | Area | Original Portfolio | Current Portfolio |
 |---|---|---|
-| **Architecture** | Primarily static HTML, CSS and JavaScript. | Flask application using routes, services, Jinja templates and a database. |
-| **Content** | Portfolio information was manually written into webpage files. | Projects and skills are stored in the database and loaded dynamically. |
-| **Database** | No online database was required. | Uses an online PostgreSQL database connection through Supabase. |
+| **Architecture** | Mainly static HTML, CSS and JavaScript. | Flask application using routes, services, Jinja templates and a database. |
+| **Content** | Portfolio information was written directly into the webpage files. | Projects and skills are stored in the database and loaded dynamically. |
+| **Database** | No database was required. | Uses PostgreSQL through Supabase as an online database. |
 | **Administration** | Changes had to be made directly in the source code. | An authenticated administrator area allows projects and skills to be managed. |
-| **Authentication** | No administrator authentication was required. | Uses Flask sessions, password hashing, CSRF protection and protected routes. |
-| **JavaScript** | Used mainly for frontend behaviour. | A major development focus, used to add interaction and client-side behaviour to the application. |
-| **Deployment** | Suitable for static hosting. | Designed as a server-side application suitable for platforms such as Render. |
+| **Authentication** | No authentication was required. | Uses sessions, password hashing, CSRF protection and protected routes. |
+| **JavaScript** | Mainly used for basic frontend behaviour. | Used more extensively for navigation, theme switching, interactions and other client-side functionality. |
+| **Responsive Design** | Designed primarily as a standard static website. | Improved mobile responsiveness with layouts and navigation designed to work across different screen sizes. |
+| **Deployment** | Hosted as a static website through GitHub Pages. | Runs as a server-side Flask application with a hosted PostgreSQL database. |
 
-Building this version helped me understand that a full-stack application is made up of several different layers. The frontend, backend, database, authentication, validation, deployment and security all have to work together.
+Rebuilding the portfolio this way has given me a much better understanding of how the different parts of a web application connect. It has also given me the chance to work with areas I had less experience with before, particularly databases, authentication, validation, deployment and backend development.
+
 
 ---
 
@@ -44,65 +49,57 @@ Building this version helped me understand that a full-stack application is made
 
 ### 🌍 Public Portfolio
 
-- Responsive portfolio website for desktop, tablet and mobile devices.
+- Responsive design for desktop, tablet and mobile devices.
 - Personal introduction and developer profile.
-- About section describing my background and development journey.
-- Dynamic skills section loaded from the database.
-- Skill duration/progress information.
+- About section covering my background and development journey.
+- Skills section loaded dynamically from the database.
+- Skill duration information.
 - Featured projects displayed on the homepage.
-- Dedicated page containing all projects.
-- Project pagination.
-- Project technology tags.
-- Project descriptions and external links.
-- GitHub repository links.
-- Live project links where available.
+- Dedicated projects page with pagination.
+- Project technology tags and descriptions.
+- GitHub repository links and live project links where available.
 - Project like functionality.
 - Contact section with email and LinkedIn links.
 - Responsive mobile navigation.
 - Back-to-top functionality.
-- Animated page elements.
+- Scroll-based animations and other interactive elements.
 - Night/dark mode.
-
 
 ---
 
 ### 🌙 Night & Dark Mode
 
-One of the frontend features I wanted to include was a **night/dark mode**. This was also part of my work with JavaScript during the development of this version.
+One of the frontend features I wanted to spend more time on was **night/dark mode**. The theme switch is built into the main navigation and allows visitors to change the appearance of the website without leaving the page.
 
-The theme control is included within the main navigation and allows visitors to switch between the available visual themes without having to leave the page.
-
-This was useful for me as a learning exercise because it gave me more experience working with the browser, DOM interaction, CSS and JavaScript together, rather than treating them as completely separate parts of the website.
+This was also a useful part of the project for improving my understanding of **JavaScript, the DOM and CSS**. It gave me more experience changing the state of the page through JavaScript and using CSS to control how the different themes are displayed.
 
 
 ---
 
 ### ⚡ JavaScript Development
 
-JavaScript was one of the main areas I wanted to focus on while developing this version of the portfolio.
+JavaScript was one of the main areas I wanted to improve while working on this version of the portfolio.
 
-Rather than only using JavaScript for small visual effects, I wanted to become more comfortable with using it as part of a larger web application.
+I wanted to move beyond using JavaScript for only small visual effects and get more comfortable using it alongside Flask, HTML and CSS to add interaction to the website.
 
-The frontend JavaScript is used for interactive behaviour such as:
+The frontend JavaScript is used for things such as:
 
-- Mobile navigation behaviour.
+- Mobile navigation.
 - Night/dark mode switching.
-- Interactive project likes.
+- Project likes.
 - Scroll-based interactions.
-- Animated elements appearing as they enter the viewport.
-- Other client-side interface behaviour.
+- Animations as elements enter the viewport.
+- Other client-side interactions and interface behaviour.
 
-This project gave me a better understanding of how JavaScript interacts with HTML elements, CSS classes, data attributes and Flask-generated content.
-
-
+Working on these features gave me more experience with the DOM, CSS classes, data attributes and handling interactions with content generated by Flask and Jinja.
 
 ---
 
 ### 🗄️ Database-Driven Content
 
-Instead of keeping projects and skills directly inside the HTML, the application retrieves them from the database.
+Projects, skills and other portfolio information are stored in the database rather than being written directly into the HTML.
 
-For example, the homepage requests the relevant information through service functions:
+The application uses service functions to retrieve the information needed by each page. For example, the homepage uses functions such as:
 
 ```python
     fetch_top_projects()
@@ -110,108 +107,106 @@ For example, the homepage requests the relevant information through service func
     fetch_my_details()
 ```
 
-The returned data is then passed into the Jinja templates and displayed dynamically.
+The returned data is then passed to the relevant Jinja templates and displayed dynamically.
 
-This means that adding or changing portfolio content does not require manually rewriting the HTML for every page. It also means the same database records can be used across different parts of the application, keeping the public-facing pages connected to the underlying data.
+This means I can update portfolio content through the administrator area without having to edit the templates themselves. It also allows the same data to be used in different parts of the website while keeping the database logic separate from the routes and templates.
 
 ---
+
 ### ☁️ Supabase & Online Database
 
-This project was my **first experience connecting a project to an online database through Supabase**.
+This project was my **first experience connecting an application to an online database using Supabase**.
 
-I wanted to learn how an application running on a hosted server could communicate with a remote database rather than relying entirely on a database stored locally on my own machine.
+I wanted to learn how a hosted application communicates with a remote database rather than relying on a database stored locally on my own machine.
 
-The application uses **PostgreSQL** through the PostgreSQL Python driver and **SQLAlchemy/Flask-SQLAlchemy** for database interaction.
+The application uses **PostgreSQL** with the PostgreSQL Python driver, while **SQLAlchemy and Flask-SQLAlchemy** are used to handle database interaction.
 
-This gave me practical experience with concepts such as:
+Working with an online database gave me practical experience with:
 
 - Connecting an application to an external database.
 - Working with PostgreSQL.
 - Using SQLAlchemy models and queries.
-- Creating and updating database records.
+- Creating, updating and deleting database records.
 - Handling database transactions.
 - Committing successful changes.
 - Rolling back failed database operations.
 - Separating database operations into service functions.
 
-Learning how the application, hosting environment and online database communicate with each other was one of the biggest differences between this project and my original static portfolio.
+Learning how the Flask application, hosting environment and online database communicate with each other was one of the biggest changes from my original portfolio.
 
 ---
 
 ## 🔐 Administrator System
 
-The website contains a private **administrator section** used to manage the portfolio content.
+The website includes a private **administrator section** where I can manage the content of the portfolio.
 
 The administrator dashboard currently provides access to:
 
 - Total project likes.
-- Total uploaded projects.
+- Total projects.
 - Total skills.
-- Adding projects.
-- Viewing projects.
+- Adding new projects.
+- Viewing existing projects.
 - Editing projects.
 - Deleting projects.
-- Adding skills.
-- Viewing skills.
+- Adding new skills.
+- Viewing existing skills.
 - Editing skills.
 - Deleting skills.
 
-This was created so that I could manage the portfolio without needing to edit the public-facing templates every time I wanted to make a change.
+The main purpose of the administrator area is to make managing the portfolio easier. Instead of having to edit the public-facing templates whenever I want to make a change, I can manage the projects and skills through the dashboard.
 
 ---
 
 ## 🛡️ Security
 
-Security became a much more important part of this project as I moved from a static website to an application containing authentication and database operations.
+Security became a more important part of the project once I moved from a static website to an application with authentication and database operations.
 
 ### 🔑 Password Hashing
 
-Administrator passwords are not stored as plain text.
+Administrator passwords are **not stored as plain text**.
 
-The application uses **Argon2** for password hashing and verification.
-
-The login process retrieves the stored password hash and verifies the supplied password using Argon2 before allowing the user to continue.
+The application uses **Argon2** to hash and verify passwords. When an administrator logs in, the stored password hash is retrieved and the supplied password is checked against it before access is granted.
 
 
 ---
 
 ### 👤 Session Authentication
 
-Protected administrator routes use a `login_required` decorator.
+Protected administrator routes use a `login_required` decorator to make sure only authenticated users can access them.
 
-The decorator checks the current Flask session for an authenticated username and then verifies that the corresponding user still exists in the database.
+The decorator checks the current Flask session for an authenticated username and then verifies that the user still exists in the database.
 
 If the session is invalid or the user cannot be found, access is denied and the visitor is redirected back to the public website.
 
-There is also a `logout_required` decorator which prevents already authenticated users from accessing pages intended for logged-out users.
+There is also a `logout_required` decorator which prevents authenticated users from accessing pages that are intended for logged-out visitors.
+
 
 ---
 
 ### 🛡️ CSRF Protection
 
-The application uses **Flask-WTF** for CSRF protection.
+The application uses **Flask-WTF** to provide CSRF protection for forms and other sensitive requests.
 
-CSRF tokens are included with sensitive forms and actions. The frontend also passes CSRF token data to JavaScript where required for interactive requests.
+CSRF tokens are included with protected forms, and the token is also made available to JavaScript where it is needed for interactive requests.
 
-Invalid CSRF requests are handled by a dedicated **400 error page**.
+If a request contains an invalid or missing CSRF token, it is rejected and handled by the application's **400 Bad Request** error page.
 
 ---
 
 ### 🚦 Rate Limiting
 
-The project uses **Flask-Limiter** to restrict certain actions.
+The project uses **Flask-Limiter** to limit certain endpoints and prevent them from being called too frequently.
 
-For example, the project like endpoint is limited to:
+For example, the project like endpoint is currently limited to **5 requests per day**.
 
-    5 requests per day
-
-This was added to reduce repeated automated requests against the endpoint and to give me practical experience with rate limiting.
+I added this mainly to reduce repeated requests to the endpoint while also giving me some practical experience with implementing rate limiting in a Flask application.
 
 ---
 
 ### 🧹 Input Validation
 
-The project contains dedicated validation functions for different types of input.
+The project uses dedicated validation functions to check different types of input before they are used by the application.
 
 These include validation for:
 
@@ -220,20 +215,21 @@ These include validation for:
 - General text input.
 - Dates.
 - Times.
-- Date/time values.
+- Date and time values.
 - Integer values.
 
-Project and skill services use these validators before attempting to store information in the database.
+The project and skill services use these validation functions before attempting to store information in the database. This keeps the validation logic separate from the routes and makes it easier to reuse across the application.
+
 
 ---
 
 ## ⚠️ Error Handling
 
-The application contains custom error handlers for several common HTTP errors.
+The application includes custom error handlers for several common HTTP errors.
 
 | Status | Purpose |
 |---|---|
-| **400** | Bad request and CSRF errors. |
+| **400** | Bad request, including invalid CSRF requests. |
 | **403** | Forbidden request. |
 | **404** | Page or resource not found. |
 | **405** | HTTP method not allowed. |
@@ -241,27 +237,24 @@ The application contains custom error handlers for several common HTTP errors.
 | **429** | Too many requests. |
 | **500** | Internal server error. |
 
-Each error has its own template so that visitors receive a consistent experience instead of seeing the default Flask error pages.
-
+Each error has its own template, allowing the website to keep the same overall design when something goes wrong instead of displaying Flask's default error pages.
 
 ---
 
 ## 🖼️ Image Uploads
 
-Project images can be uploaded through the administrator system.
+Project images can be uploaded through the administrator area and are stored using **Cloudinary** rather than being saved directly to the application's filesystem.
 
-The application uses **Cloudinary** for image uploads rather than storing uploaded images directly inside the application filesystem.
+Before an image is uploaded, the application checks that the file type is supported.
 
-The uploader checks the supplied file type before sending the image to Cloudinary.
-
-The currently accepted image types are:
+Currently supported image types are:
 
 - JPEG
 - JPG
 - PNG
 - WebP
 
-Once an image has been uploaded successfully, the application stores the returned secure Cloudinary URL with the associated project.
+Once the upload is successful, the application stores the secure Cloudinary URL with the relevant project so the image can be displayed on the website.
 
 ---
 
@@ -269,70 +262,114 @@ Once an image has been uploaded successfully, the application stores the returne
 
 | Technology | Purpose |
 |---|---|
-| **Python** | Main backend programming language. |
-| **Flask** | Web framework responsible for routing, requests, sessions and application structure. |
-| **SQLAlchemy** | ORM and database query layer. |
-| **Flask-SQLAlchemy** | Integration between Flask and SQLAlchemy. |
-| **PostgreSQL** | Online relational database used by the deployed application. |
-| **Supabase** | Online platform used for the hosted database connection. |
-| **Jinja2** | Server-side HTML templating system used by Flask. |
+| **Python** | Main programming language used for the backend. |
+| **Flask** | Web framework used for routing, requests, sessions and the overall application structure. |
+| **SQLAlchemy** | ORM used to interact with the database. |
+| **Flask-SQLAlchemy** | Flask extension that integrates SQLAlchemy with the application. |
+| **PostgreSQL** | Relational database used to store the application's data. |
+| **Supabase** | Hosted platform providing the online PostgreSQL database. |
+| **Jinja2** | Server-side templating engine used to generate dynamic HTML through Flask. |
 | **HTML5** | Structure and semantic markup for the website. |
-| **CSS3** | Responsive layout, styling, themes and animations. |
-| **JavaScript** | Client-side interaction, theme switching, navigation, animations and interactive functionality. |
+| **CSS3** | Styling, responsive layouts, themes and animations. |
+| **JavaScript** | Client-side interactions, theme switching, navigation, animations and other interactive functionality. |
 | **Argon2** | Password hashing and verification. |
-| **Flask-WTF** | CSRF protection and form support. |
+| **Flask-WTF** | Form handling and CSRF protection. |
 | **Flask-Limiter** | Rate limiting for selected endpoints. |
-| **Flask-Migrate / Alembic** | Database migration support. |
+| **Flask-Migrate / Alembic** | Database migration management. |
 | **Cloudinary** | Cloud image uploading and storage. |
-| **Gunicorn** | Production WSGI application server. |
+| **Gunicorn** | Production WSGI server used to run the Flask application. |
 | **python-dotenv** | Loading environment variables during development. |
 
 ---
 ## 📂 Project Structure
 
-The application is separated into routes, services, validators, models, templates and static assets. This helps keep the different parts of the application organised and makes individual areas easier to work on.
+The application is organised into separate areas for the Flask application, database models, routes, services, templates and static assets. This keeps the different responsibilities separated and makes the project easier to maintain as it grows.
 
 ```text
 Portfolio/
 │
-├── app.py
-├── extensions.py
-├── requirements.txt
+├── app.py                         # Flask application entry point
+├── config.py                      # Application configuration
+├── extensions.py                  # Flask extension initialisation
+├── security.py                    # Security configuration and functionality
+├── requirements.txt               # Python dependencies
+├── LICENSE                        # Project licence
+├── readme.md                      # Project documentation
 │
 ├── database/
-│   ├── models/
-│   │   └── ...
-│   └── seed/
-│       └── ...
+│   ├── models/                    # SQLAlchemy database models
+│   │   ├── __init__.py
+│   │   ├── projects_table.py      # Project model
+│   │   ├── skills_table.py        # Skill model
+│   │   └── users_table.py         # User model
+│   │
+│   └── seed/                      # Database seeding
+│       ├── __init__.py
+│       └── seed_data.py           # Initial database records
 │
-├── migrations/
-│   └── ...
+├── migrations/                    # Database migration files
+│   ├── README
+│   ├── alembic.ini
+│   ├── env.py
+│   ├── script.py.mako
+│   └── versions/
 │
-├── routes/
-│   ├── main_routes.py
-│   ├── admin_routes.py
-│   └── ...
-│
-├── services/
-│   ├── projects.py
-│   ├── skills.py
-│   ├── users.py
-│   ├── uploader.py
-│   └── validators/
-│       ├── input_validator.py
-│       └── ...
-│
-├── templates/
-│   ├── layout.html
-│   ├── header.html
-│   ├── footer.html
-│   ├── home.html
-│   ├── projects-page.html
+├── routes/                        # Flask routes and blueprints
+│   ├── __init__.py
+│   ├── main_routes.py             # Public portfolio routes
 │   │
 │   ├── admin/
-│   │   └── ...
+│   │   ├── __init__.py
+│   │   └── admin_routes.py        # Administrator routes
 │   │
-│   └── error_pages/
+│   └── error/
+│       ├── __init__.py
+│       └── error_pages.py         # Application error handlers
+│
+├── services/                      # Application and database logic
+│   ├── __init__.py
+│   │
+│   ├── auth/
+│   │   ├── __init__.py
+│   │   └── auth.py               # Authentication functionality
+│   │
+│   ├── projects/
+│   │   ├── __init__.py
+│   │   └── project_functions.py  # Project operations
+│   │
+│   ├── skills/
+│   │   ├── __init__.py
+│   │   └── skill_functions.py    # Skill operations
+│   │
+│   ├── uploader/
+│   │   ├── __init__.py
+│   │   └── uploader_functions.py # Image upload functionality
+│   │
+│   ├── user/
+│   │   ├── __init__.py
+│   │   └── user_functions.py     # User information operations
+│   │
+│   └── validators/
+│       └── input_validator.py     # Reusable input validation
+│
+├── templates/                     # Jinja HTML templates
+│   ├── layout.html                # Main template layout
+│   ├── header.html                # Header and navigation
+│   ├── footer.html                # Footer
+│   ├── home.html                  # Homepage
+│   ├── projects-page.html         # Project archive
+│   │
+│   ├── admin/                     # Administrator pages
+│   │   ├── add-project.html
+│   │   ├── add-skill.html
+│   │   ├── admin-home.html
+│   │   ├── all-projects.html
+│   │   ├── all-skills.html
+│   │   ├── login.html
+│   │   ├── project-view.html
+│   │   └── skill-view.html
+│   │
+│   └── error_pages/               # Custom error pages
 │       ├── 400.html
 │       ├── 403.html
 │       ├── 404.html
@@ -341,17 +378,50 @@ Portfolio/
 │       ├── 429.html
 │       └── 500.html
 │
-├── static/
-│   ├── css/
+├── static/                        # Static website assets
+│   │
+│   ├── css/                       # Stylesheets
+│   │   ├── admin-pages/           # Administrator page styles
+│   │   ├── components/            # Reusable component styles
+│   │   ├── error-pages/           # Error page styles
+│   │   ├── footer/                # Footer styles
+│   │   ├── forms/                 # Form styles
+│   │   ├── header/                # Header and navigation styles
+│   │   ├── home-page/             # Homepage section styles
+│   │   ├── projects-page/         # Project page styles
+│   │   ├── base.css
+│   │   ├── css-template.css
 │   │   └── styles.css
 │   │
-│   ├── js/
+│   ├── js/                        # Client-side JavaScript
+│   │   ├── components/            # Reusable JavaScript components
+│   │   │   ├── add-like.js
+│   │   │   ├── back-to-top.js
+│   │   │   ├── flash.js
+│   │   │   ├── hidden.js
+│   │   │   ├── logout.js
+│   │   │   ├── mobile-menu-button.js
+│   │   │   ├── night-mode.js
+│   │   │   └── slider.js
+│   │   │
+│   │   ├── forms/
+│   │   │   └── login-form.js
+│   │   │
 │   │   └── script.js
 │   │
-│   └── media/
-│       └── ...
+│   ├── media/                     # Website images and media
+│   │   ├── back-to-top.png
+│   │   ├── day.png
+│   │   ├── favicon.ico
+│   │   ├── intro-image.png
+│   │   ├── night.png
+│   │   ├── og-image.png
+│   │   └── profile-image.jpg
+│   │
+│   └── robots.txt                 # Search engine crawler instructions
 │
-└── README.md
+└── venv/                          # Local Python virtual environment
+```
 
 ---
 
@@ -359,46 +429,44 @@ Portfolio/
 
 ### 🌐 Main Routes
 
-The main Flask blueprint handles the public-facing portfolio.
+The main Flask blueprint handles the public-facing parts of the portfolio.
 
 #### Homepage
 
-The homepage retrieves:
+The homepage retrieves the information needed to build the page dynamically, including:
 
 - Featured projects.
 - All skills.
 - Personal details.
 
-These are passed into the homepage template and displayed dynamically.
+This information is passed to the homepage template and displayed using Jinja.
 
 #### Projects Page
 
-The projects page retrieves projects from the database and displays them using Flask-SQLAlchemy pagination.
+The projects page retrieves projects from the database and uses **Flask-SQLAlchemy pagination** to control how many are displayed at once.
 
-Six projects are displayed per page:
+The page currently displays **six projects per page**:
 
-```python
-per_page=6
-```
+    per_page=6
 
-This prevents the page from having to display every project at once as the collection grows.
+This keeps the project archive manageable as more projects are added.
 
 #### Project Likes
 
 Projects can receive likes through a `POST` request.
 
-When a like is submitted, the application retrieves the project using its ID, increases the like count and commits the change to the database.
+When a like is submitted, the application retrieves the relevant project using its ID, increases the like count and commits the change to the database.
 
-The endpoint is also protected by a Flask-Limiter rule of five requests per day.
+The endpoint is also protected by **Flask-Limiter**, with a limit of five requests per day.
 
 #### `robots.txt`
 
-The application serves the site's `robots.txt` file from the Flask static directory.
+The application serves the site's `robots.txt` file through Flask's static directory.
 
 ---
 ## 📁 Project Service
 
-Project-related database operations are kept inside a dedicated service rather than putting all of the database logic directly into the route functions.
+Project-related database operations are handled through a dedicated service rather than being placed directly inside the route functions.
 
 The project service currently handles:
 
@@ -412,7 +480,7 @@ The project service currently handles:
 
 ### Project Validation
 
-When a project is created or updated, the application validates information such as:
+When a project is created or updated, the application validates information including:
 
 - Title.
 - Description.
@@ -423,35 +491,38 @@ When a project is created or updated, the application validates information such
 - Completion date.
 - Project image.
 
-Projects are limited to four tags.
+Projects are limited to **four tags**.
 
-The application also checks existing projects to prevent the same GitHub repository or live project URL being assigned to multiple projects.
+The application also checks existing projects to prevent the same GitHub repository or live project URL from being assigned to more than one project.
 
 ---
+
 ## 🧠 Skills Service
 
-Skills are also managed through a dedicated service rather than handling the database operations directly inside the routes.
+Skills are managed through a dedicated service, keeping the database operations separate from the application routes.
 
-The skill functionality supports:
+The skills service currently handles:
 
 - Retrieving all skills.
-- Retrieving a skill by ID.
-- Adding skills.
-- Updating skills.
+- Retrieving an individual skill by ID.
+- Adding new skills.
+- Updating existing skills.
 - Deleting skills.
 
-Each skill has a duration value representing the number of months associated with that skill.
+Each skill has a duration value representing the number of months I have been working with or learning that particular skill.
 
-The application currently restricts the duration to between **one and thirty-six months**.
+The application currently limits this value to between **one and thirty-six months**.
 
-Duplicate skill names are also checked when adding a new skill to prevent the same skill from being added multiple times.
+When a new skill is added, the application also checks for existing skill names to prevent the same skill from being added more than once.
+
 
 ---
+
 ## 👤 User Information
 
-The public website retrieves selected information from the user record for the portfolio contact section.
+The public website retrieves only the user information needed for the portfolio and contact sections.
 
-This includes:
+This currently includes:
 
 - First name.
 - Surname.
@@ -459,80 +530,81 @@ This includes:
 - GitHub profile.
 - LinkedIn profile.
 
-Only the information required by the public portfolio is returned by the service function rather than exposing the entire database model to the template.
+Rather than passing the complete user record to the templates, the service function only returns the information that the public website needs. This keeps the amount of user data exposed to the templates to a minimum.
 
 ---
 ## 🧹 Input Validation
 
-The application contains reusable validation functions rather than validating every value separately throughout the application.
+The application uses reusable validation functions rather than handling validation separately throughout the different routes and services.
 
 ### Username Validation
 
-Usernames are checked for invalid characters and a maximum length.
+Usernames are checked for invalid characters and a maximum length before they are processed.
 
 ### Password Validation
 
-Passwords have a minimum length of ten characters and a maximum length of 255 characters, alongside the application's invalid-character checks.
+Passwords must be between **10 and 255 characters** and are also checked against the application's invalid-character rules.
 
 ### General Input
 
-General text input is checked before being used by the project and skill services.
+General text input is validated before being passed to the project and skill services.
 
 ### Date and Time Validation
 
-The validation module provides functions for:
+The validation module includes separate functions for checking:
 
 - Dates.
 - Times.
-- Date/time values.
+- Date and time values.
 
-These use Python's built-in date and time parsing functionality.
+These use Python's built-in date and time functionality to check that the supplied values are valid.
 
 ### Integer Validation
 
-Integer input is validated before being used for values such as skill duration.
+Integer values are validated before being used by the application, including values such as skill duration.
 
 ---
+
 ## 🌱 Database Seeding
 
-The project includes a seed function for creating the initial administrator record when it does not already exist.
+The project includes a seed function that creates the initial administrator account if it does not already exist.
 
-The seed process checks for the expected username before attempting to create the user. This prevents the same seed record from being inserted repeatedly.
+Before creating the account, the seed process checks whether the expected username is already present. This prevents the same administrator record from being created more than once.
 
-The stored password is an **Argon2 hash** rather than a plain-text password.
+The administrator password is stored as an **Argon2 hash** rather than plain text.
 
-Sensitive credentials and environment-specific information should still be configured appropriately for each deployment rather than relying on values intended only for development or demonstration purposes.
+Any sensitive credentials and environment-specific configuration should be set separately for each deployment and should not be included in the repository.
 
 ---
 ## 📄 Templates
 
-The application uses Jinja templates to avoid repeating common HTML throughout the website.
+The application uses **Jinja templates** to keep the HTML organised and avoid repeating the same structure across different pages.
 
 ### `layout.html`
 
-The main layout contains common elements such as:
+The main layout contains the shared elements used throughout the website, including:
 
 - HTML document structure.
-- Metadata.
+- Page metadata.
 - Stylesheets.
 - Google Fonts.
 - Open Graph metadata.
 - Structured data.
-- Header.
+- Header and navigation.
 - Footer.
 - Flash messages.
 - JavaScript.
 
-Other pages extend this layout rather than recreating the entire HTML document.
+Other templates extend `layout.html` so that these common elements do not need to be recreated on every page.
 
 ### `home.html`
 
-The homepage contains:
+The homepage contains the main sections of the portfolio, including:
 
-- Introduction section.
+- Introduction.
 - Technology display.
 - About section.
-- Skills section.
+- Skills.
 - Featured projects.
 - Contact section.
 
@@ -541,7 +613,7 @@ The homepage contains:
 The project archive displays projects in a grid and includes:
 
 - Project images.
-- Descriptions.
+- Project descriptions.
 - Technology tags.
 - Like counts.
 - Live project links.
@@ -550,23 +622,25 @@ The project archive displays projects in a grid and includes:
 
 ### Admin Templates
 
-The administrator templates provide the interface for managing projects and skills without modifying the public templates manually.
+The administrator templates provide the interface for managing projects and skills through the dashboard rather than requiring changes to the public-facing templates.
 
 ---
+
 ## 📱 Responsive Design
 
-The website was designed to work across different screen sizes.
+I wanted to improve the mobile experience compared with my original portfolio, so the website was designed to work across **desktop, tablet and mobile** screen sizes.
 
-The templates include separate mobile navigation behaviour and responsive elements for smaller screens.
+The layout uses responsive CSS to adapt different sections of the website to smaller screens rather than simply scaling down the desktop layout.
 
-The navigation includes a mobile menu button, while the website also provides a mobile back-to-top control.
+The navigation also has a dedicated mobile menu, along with a mobile-friendly back-to-top control.
 
-The goal was to make the website usable rather than simply shrinking the desktop version down for mobile devices.
+Improving the responsive design was another area I wanted to gain more practical experience with, particularly when working with different layouts, screen sizes and user interactions.
 
 ---
+
 ## 🔎 SEO & Metadata
 
-The website includes several pieces of metadata intended to help search engines and social platforms understand the website.
+The website includes a range of metadata to help search engines and social platforms understand and display the portfolio correctly.
 
 This includes:
 
@@ -579,16 +653,15 @@ This includes:
 - Robots directives for administrative pages.
 - Schema.org structured data describing the site owner.
 
-The administrator page specifically uses:
+The administrator page includes:
 
 ```html
-<meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex, nofollow">
 ```
 
-This is intended to discourage search engines from indexing the page or following links from it.
+This tells search engines not to index the administrator page or follow links from it.
 
 ---
-
 
 ## 🚨 Error Pages
 
@@ -621,7 +694,7 @@ git clone https://github.com/Sheikh-H/Sheikh-Hussain.git
 ### 3. Enter the Project Directory
 
 ```bash
-cd Sheikh-Hussain
+cd sheikh-hussain
 ```
 
 The directory can be renamed if required.
@@ -660,6 +733,17 @@ This may include database connection information, Flask configuration, secret ke
 
 > **Important:** Do not commit private credentials or production secrets to GitHub.
 
+Example:
+
+```text
+SECRET_KEY=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_URL=
+DATABASE_URL=
+```
+
 ### 8. Configure the Database
 
 Configure the application with your own PostgreSQL/Supabase database connection and run the required database migrations.
@@ -673,6 +757,7 @@ flask run
 The development server can then be accessed through the local address provided by Flask.
 
 ---
+
 ## ☁️ Deployment
 
 The application is designed to run as a hosted Flask application and has been developed with deployment in mind.
@@ -688,6 +773,7 @@ The database is hosted separately through **Supabase/PostgreSQL**, while uploade
 Production environment variables should be configured through the hosting provider rather than committed to the repository.
 
 ---
+
 ## 📦 Dependencies
 
 The project currently uses a range of Python packages for the Flask application, database layer, authentication, validation, deployment and external services.
@@ -712,6 +798,7 @@ Some of the main packages include:
 - **Jinja2**
 
 ---
+
 ## 📚 What I Learned
 
 This project has been particularly useful because it brought together a number of different areas of development rather than focusing on just one.
@@ -826,5 +913,3 @@ SOFTWARE.
   <a class="header-badge" target="_blank" href="mailto:sheikh.hussain1155@gmail.com"><img src="https://img.shields.io/badge/Gmail-376e00?style=flat&logo=gmail&logoColor=white" alt="Gmail"></a>
   <a class="header-badge" target="_blank" href="https://sheikh-hussain.onrender.com/"><img src="https://img.shields.io/badge/Portfolio-376e00?style=flat&logo=github&logoColor=white" alt="Portfolio"></a>
 </div>
-
-<div align="center">
