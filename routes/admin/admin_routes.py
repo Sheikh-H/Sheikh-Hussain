@@ -67,7 +67,7 @@ def home():
 
 
 @admin.route("/admin/add-project", methods=["GET", "POST"])
-@limiter.limit("5 per day", methods=["POST"])
+@limiter.limit("100 per day", methods=["POST"])
 @login_required
 def add_project():
     title = "Add Project"
