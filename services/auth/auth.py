@@ -55,5 +55,6 @@ def login_function(data: dict[str, str]) -> User | bool:
         verifier(hash=user.password, password=valid_password)
         return user
     except Exception as e:
-        print(e)
+        print("LOGIN ERROR:", repr(e))
+        print("ERROR TYPE:", type(e).__name__)
         return False
