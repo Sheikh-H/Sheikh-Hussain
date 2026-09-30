@@ -82,19 +82,32 @@
     <br>
     <br>
     <div class="more-about">
-        <p>Hey! I'm <strong>Sheikh</strong>. I've been interested in coding since
-            college, and after spending a few
-            years working in sales and customer service, I've found my way back to something I've always enjoyed
-            <strong>building things with technology</strong>.
+        <p>
+            Hey! I'm <strong>Sheikh</strong>, an aspiring full-stack developer with a long-standing interest in
+            technology and a genuine curiosity for how things work behind the scenes. My journey into development began
+            at college around 2012, where I started exploring coding and software development. I later studied
+            <strong>Business and Technology at Manchester Metropolitan University</strong>, graduating in 2018. During
+            my placement year, I gained practical experience in <strong>systems design and database
+                development</strong>, contributing to a device tracking system used by engineers across multiple
+            regions.
         </p>
         <br>
-        <p>I'm still learning and, more often than not, figuring things out as I go. I enjoy <strong>solving problems,
-                understanding how things work</strong> and seeing an idea slowly turn into something useful. Whether
-            that's a website, an API or a database, I enjoy getting stuck in and working things out.</p>
+        <p>
+            After university, my career took me into sales and customer service, where I developed valuable experience
+            in communication, problem-solving and understanding how businesses operate. While I enjoyed those
+            experiences, my interest in technology never disappeared. I eventually decided to return to development,
+            studying <strong>coding and cybersecurity at Code Nation Manchester</strong> and putting that knowledge into
+            practice through a growing collection of personal projects.
+        </p>
         <br>
-        <p>I'm working towards becoming a <strong>full-stack developer</strong>, whilst also exploring areas like
-            security and systems. There's still plenty I don't know, but that's part of the fun. For now, I'm focused on
-            <strong>learning, building and seeing where it takes me</strong>.
+        <p>
+            What I enjoy most is <strong>designing and building complete web applications</strong> and seeing how all
+            the pieces come together. From the interface a user interacts with, to the backend logic, databases, APIs
+            and authentication working behind it, I enjoy building the full picture rather than focusing on just one
+            part. I'm particularly interested in <strong>full-stack web development</strong>, with security and good
+            system design forming an important part of how I approach my projects. I'm still learning, but that's
+            something I genuinely enjoy <strong>building, experimenting, breaking things, fixing them and learning along
+                the way</strong>.
         </p>
     </div>
 </section>
@@ -158,7 +171,7 @@
                             like {% else %} likes {% endif %} </p>
                 </div>
             </div>
-            <p>{{project.description.capitalize()}}</p>
+            <p>{{ project.description.capitalize() }}</p>
             <div class="project-tags">
                 {% set tags = project.tags.split(", ")%}
                 {% for tag in tags %}

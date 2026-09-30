@@ -59,6 +59,12 @@
                         <small><abbr title="JSON Web Token">{{tag.upper()}}</abbr></small>
                         {% elif tag.upper() == "JSON" %}
                         <small><abbr title="JavaScript Object Notation">{{tag.upper()}}</abbr></small>
+                        {% elif tag.upper() == "ROLES" %}
+                        <small><abbr title="Role Based System">{{tag.upper()}}</abbr></small>
+                        {% elif tag.upper() == "AUTH" %}
+                        <small><abbr title="Authentication System">{{tag.upper()}}</abbr></small>
+                        {% elif tag.upper() == "FS" %}
+                        <small><abbr title="Full-Stack System">{{tag.upper()}}</abbr></small>
                         {% else %}
                         <small><abbr title="">{{tag.upper()}}</abbr></small>
                         {% endif %}
@@ -85,7 +91,7 @@
     </div>
     <div class="pagination">
         {% if pagination.has_prev %}
-        <a href="{{ url_for('main.main.projects_page', page=pagination.prev_num) }}">
+        <a href="{{ url_for('main.projects_page', page=pagination.prev_num) }}">
             <p>&lt;Previous</p>
         </a>
         {% endif %}
