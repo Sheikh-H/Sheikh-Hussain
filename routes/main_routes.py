@@ -37,14 +37,14 @@ def home():
 
 
 @main.route("/all-projects", methods=["GET"])
-def all_projects():
+def projects_page():
     title = "Sheikh Hussain | My Projects"
     page = request.args.get("page", default=1, type=int)
     query = db.select(Project).order_by(Project.added.desc())
     pagination = db.paginate(query, page=page, per_page=6, error_out=False)
     projects = pagination.items
     return render_template(
-        "all-projects.html", projects=projects, title=title, pagination=pagination
+        "projects-page.html", projects=projects, title=title, pagination=pagination
     )
 
 
@@ -58,11 +58,11 @@ def add_like(project_id):
     try:
         project.likes += 1
         db.session.commit()
-        return redirect(url_for("main.all_projects"))
+        return redirect(url_for("main.projects_page"))
     except Exception as e:
         print(e)
         db.session.rollback()
-    return redirect(url_for("main.all_projects"))
+    return redirect(url_for("main.projects_page"))
 
 
 @main.route("/robots.txt")

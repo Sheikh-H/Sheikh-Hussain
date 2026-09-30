@@ -6,6 +6,8 @@
 @import url("./components/tech-scroll.css");
 @import url("./components/pagination.css");
 
+@import url("./forms/form.css");
+
 @import url("./error-pages/error-page.css");
 
 @import url("./header/header.css");
@@ -24,3 +26,5 @@
 @import url("./admin-pages/login-page.css");
 @import url("./admin-pages/home-page.css");
 @import url("./admin-pages/add-project.css");
+@import url("./admin-pages/all-projects.css");
+@import url("./admin-pages/project-view.css");

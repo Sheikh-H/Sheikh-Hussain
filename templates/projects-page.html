@@ -85,7 +85,7 @@
     </div>
     <div class="pagination">
         {% if pagination.has_prev %}
-        <a href="{{ url_for('main.all_projects', page=pagination.prev_num) }}">
+        <a href="{{ url_for('main.main.projects_page', page=pagination.prev_num) }}">
             <p>&lt;Previous</p>
         </a>
         {% endif %}
@@ -94,7 +94,7 @@
         {% if page_num == pagination.page %}
         <span class="current-page">{{ page_num }}</span>
         {% else %}
-        <a href="{{ url_for('main.all_projects', page=page_num) }}">
+        <a href="{{ url_for('main.projects_page', page=page_num) }}">
             {{ page_num }}
         </a>
         {% endif %}
@@ -103,7 +103,7 @@
         {% endif %}
         {% endfor %}
         {% if pagination.has_next %}
-        <a href="{{ url_for('main.all_projects', page=pagination.next_num) }}">
+        <a href="{{ url_for('main.projects_page', page=pagination.next_num) }}">
             <p>Next&gt;</p>
         </a>
         {% endif %}

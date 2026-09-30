@@ -9,8 +9,8 @@ from extensions import db
 class Project(db.Model):
     __tablename__ = "Projects_Table"
     project_id: Mapped[int] = mapped_column(primary_key=True)
-    image_url: Mapped[str | None] = mapped_column(
-        String(), nullable=True, default="https://placehold.net/500x500.png"
+    image_url: Mapped[str] = mapped_column(
+        String(), nullable=False, default="https://placehold.co/500x500.png"
     )
     title: Mapped[str] = mapped_column(String(50), nullable=False)
     description: Mapped[str] = mapped_column(String(100), nullable=False)

@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+{% block header %}
+<meta name="robots" content="noindex, nofollow">
+{% endblock header %}
+
+{% block content %}
+<br>
+<section class="all-projects-section">
+    <h1>Completed projects</h1>
+    <small>Click to edit!</small>
+    <br>
+    <br>
+    <div class="projects-grid">
+        {% for project in projects %}
+        <a href="{{url_for('admin.project_page', project_id=project.project_id)}}" class="admin-project-item">
+            <img src="{{project.image_url}}" alt="{{project.title.upper()}} image">
+            <div class="admin-projects-info">
+                <div class="admin-projects-title">
+                    <p><b>{{project.title.title()}}</b></p>
+                    <p>
+                        {% if project.likes < 10 %} {{project.likes}} {% else %} 9+ {% endif %} {% if project.likes==1%}
+                            like {% else %} likes {% endif %} </p>
+                </div>
+                <div class="admin-projects-description">
+                    <p>{{project.description.capitalize()}}</p>
+                </div>
+                <div class="admin-projects-tags">
+                    {% set tags = project.tags.split(", ") %}
+                    {% for tag in tags %}
+                    <div class="admin-projects-tag">
+                        <p>{{tag}}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    <div class="pagination">
+        {% if pagination.has_prev %}
+        <a href="{{ url_for('admin.all_projects', page=pagination.prev_num) }}">
+            <p>&lt;Previous</p>
+        </a>
+        {% endif %}
+        {% for page_num in pagination.iter_pages() %}
+        {% if page_num %}
+        {% if page_num == pagination.page %}
+        <span class="current-page">{{ page_num }}</span>
+        {% else %}
+        <a href="{{ url_for('admin.all_projects', page=page_num) }}">
+            {{ page_num }}
+        </a>
+        {% endif %}
+        {% else %}
+        <span>...</span>
+        {% endif %}
+        {% endfor %}
+        {% if pagination.has_next %}
+        <a href="{{ url_for('admin.all_projects', page=pagination.next_num) }}">
+            <p>Next&gt;</p>
+        </a>
+        {% endif %}
+    </div>
+</section>
+<br>
+<br>
+{% endblock content %}

@@ -44,9 +44,13 @@ def insert_new_project(data: dict) -> bool:
     tags = validate_input(data.get("tags", "").upper())
     tags = ", ".join(tag.strip() for tag in tags.split(",") if tag.strip())
     if len(tags.split(",")) > 4:
-        flash("Please use 4 tags onlys!", "error")
+        flash("Please use 4 tags only!", "error")
         return False
     featured = data.get("featured", 0)
+    if featured > 1:
+        featured = 1
+    else:
+        featured = 0
     completed = validate_date(data.get("completed", today))
     if not all([title, description, github, tags, completed]):
         flash("Please enter all required fields!", "error")
@@ -54,11 +58,20 @@ def insert_new_project(data: dict) -> bool:
     if completed > today:
         flash("Please enter a valid date!", "error")
         return False
-    image_url = "https://placehold.net/500x500.png"
-    if data.get("image"):
-        image_url = image_uploader(data.get("image"), f"Projects/{title}")
-        if image_url is None:
-            image_url = "https://placehold.net/500x500.png"
+    projects = fetch_all_projects()
+    for project in projects:
+        if project.github == github:
+            flash("The GitHub Repo is assigned to another project!", "error")
+            return False
+        if live and project.live == live:
+            flash("This link is assigned to another project!", "error")
+            return False
+    image = data.get("image")
+    if image and image.filename:
+        upload_url = image_uploader(image, f"Projects/{title}")
+        image_url = upload_url
+    else:
+        image_url = "https://placehold.co/500x500.png"
     try:
         query = insert(Project).values(
             title=title,
@@ -78,3 +91,8 @@ def insert_new_project(data: dict) -> bool:
         print(e)
         db.session.rollback()
         return False
+
+
+def fetch_project_by_id(project_id: int) -> Project:
+    project = db.get_or_404(Project, project_id)
+    return project
