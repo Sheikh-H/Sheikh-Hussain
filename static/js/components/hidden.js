@@ -1,7 +1,6 @@
 const about = document.querySelector(".about-section");
 const intro = document.querySelector(".intro-section");
 const projects = document.querySelectorAll(".project");
-const contact = document.querySelector(".contact-section");
 const skills = document.querySelectorAll(".skill-card");
 const skillCards = document.querySelectorAll(".skill-card");
 const projectCards = document.querySelectorAll(".project-item");
@@ -63,10 +62,6 @@ if (projects) {
   projects.forEach((project) => {
     observer.observe(project);
   });
-}
-
-if (contact) {
-  observer.observe(contact);
 }
 
 if (projectCards) {

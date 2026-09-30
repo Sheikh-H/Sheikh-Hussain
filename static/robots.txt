@@ -4,3 +4,11 @@ Allow: /
 Disallow: /add-like/
 Disallow: /admin/
 Disallow: /admin/login
+Disallow: /admin/logout
+Disallow: /admin/home
+Disallow: /admin/add-project
+Disallow: /admin/all-projects
+Disallow: /admin/add-skill
+Disallow: /admin/all-skills
+Disallow: /admin/project/
+Disallow: /admin/skill/

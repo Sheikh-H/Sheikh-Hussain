@@ -2,7 +2,6 @@ from datetime import datetime, timezone
 
 from flask import (
     Blueprint,
-    abort,
     flash,
     redirect,
     render_template,
@@ -153,7 +152,7 @@ def add_skill():
     return render_template("admin/add-skill.html", title=title)
 
 
-@admin.route("/admin/skills", methods=["GET"])
+@admin.route("/admin/all-skills", methods=["GET"])
 @login_required
 def all_skills():
     title = "All skills"
