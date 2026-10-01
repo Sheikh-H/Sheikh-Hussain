@@ -71,6 +71,8 @@ The idea was that if I can get the application structure, folders and files, the
 - Scroll-based animations.
 - SEO and social media metadata.
 
+As I wanted to learn how to use JS a little better, I thought it would be nice to add a JS feature that can add likes and display a like counter for each project. Every time the button is clicked, the like counter for that project is incremented. User data is not stored so any body could really do this as many times as the Rate Limiter allows, but this was a nice feature to include. 
+
 ### 🔐 Administrator Dashboard
 
 The administrator area allows portfolio content to be managed without editing the public-facing templates.
