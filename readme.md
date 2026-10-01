@@ -11,32 +11,39 @@
 
 This is the second major version of my personal portfolio.
 
-The original website was a static **HTML, CSS and JavaScript** project hosted through GitHub Pages. It did the job, but updating projects or skills meant editing the source code directly.
+The previous website was also a web application using **Flask, SQLite3, and CSS** and hosted on Render. It was good, but adding/removing/updating projects or skills became troublesome as I would need to modify the source code directly then push to the GitHub repo for the updates to remain persistent.
 
 This version takes things a little further.
 
 The portfolio is now a **Flask web application** with a PostgreSQL database, Jinja templates, an administrator dashboard, more JavaScript, responsive layouts, night mode and a more structured application architecture.
 
-It is also my first project using an **online PostgreSQL database through Supabase**, which gave me the opportunity to learn what changes when your application and database are no longer sitting together on your own machine.
-
-The project is still a work in progress. The aim isn't to pretend I've mastered everything here — it's to build something useful while learning how the different pieces of a full-stack application fit together.
+It is also my first project using an **online database**, which gave me the opportunity to learn what changes when your application and database are no longer sitting together on your own machine.
 
 ---
 
-## 🚀 From Static Website to Full-Stack Application
+## 🚀 From SQLite to Supabase
 
-| Area | Original Portfolio | Current Portfolio |
+The previous version of the portfolio had already moved beyond the original static website. It used **Flask and SQLite3**, with the database stored locally inside the application's `instance/` directory.
+
+This version builds on that foundation by moving to a remotely hosted **PostgreSQL database through Supabase**, while also introducing a more structured application architecture and more frontend functionality.
+
+| Area | Previous Portfolio | Current Portfolio |
 |---|---|---|
-| **Architecture** | Static HTML, CSS and JavaScript | Flask application with routes, services, templates and database models |
-| **Content** | Written directly into webpage files | Stored in PostgreSQL and loaded dynamically |
-| **Database** | None | PostgreSQL hosted through Supabase |
-| **Administration** | Edit the source code | Administrator dashboard |
-| **Authentication** | Not required | Sessions, password hashing, CSRF protection and protected routes |
-| **JavaScript** | Basic frontend behaviour | Navigation, themes, animations, likes and interface interactions |
-| **Responsive Design** | Basic static layout | Responsive desktop, tablet and mobile layouts |
-| **Deployment** | GitHub Pages | Hosted Flask application with remote database and image storage |
+| **Architecture** | Flask application with templates and database logic | Flask application with routes, services, templates and database models |
+| **Content** | Projects and skills stored in SQLite | Projects and skills stored in PostgreSQL |
+| **Database** | SQLite3 stored locally in `instance/` | PostgreSQL hosted through Supabase |
+| **Administration** | Administrator dashboard | Expanded administrator dashboard |
+| **Authentication** | Sessions, password hashing and CSRF protection | Sessions, password hashing, CSRF protection, validation and rate limiting |
+| **JavaScript** | Basic frontend interactions | Navigation, themes, animations, likes and other interface interactions |
+| **Responsive Design** | Responsive website | Improved desktop, tablet and mobile layouts |
+| **Templating** | Flask/Jinja templates | More reusable and structured Jinja templates |
+| **Project Structure** | Simpler Flask structure | Separated routes, services, models, validation and static assets |
+| **Image Storage** | Local/project assets | Cloudinary image uploads |
+| **Deployment** | Flask application with local database | Hosted Flask application with remote database and external image storage |
 
-The biggest change isn't simply the number of technologies involved. It's learning how to organise them so that changing a project or adding a feature doesn't mean tearing apart the whole website.
+The biggest change isn't simply moving from one database to another. It's getting experience with what happens when the database is **remote rather than local**, while also making the application easier to organise, maintain and extend.
+
+It's essentially the same portfolio idea — just with fewer things living in one folder.
 
 ---
 
@@ -271,7 +278,6 @@ For example:
 ```env
 SECRET_KEY=
 DATABASE_URL=
-
 CLOUDINARY_API_KEY=
 CLOUDINARY_API_SECRET=
 CLOUDINARY_CLOUD_NAME=
