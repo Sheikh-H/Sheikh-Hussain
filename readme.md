@@ -11,13 +11,15 @@
 
 This is the second major version of my personal portfolio.
 
-The previous website was also a web application using **Flask, SQLite3, and CSS** and hosted on Render. It was good, but adding/removing/updating projects or skills became troublesome as I would need to modify the source code directly then push to the GitHub repo for the updates to remain persistent.
+The previous website was also a web application using **Flask, SQLite3, and CSS** and hosted on Render. It was good, but adding/removing/updating projects or skills became troublesome as I would need to modify the source code directly then push to the GitHub for the updates to remain persistent.
 
 This version takes things a little further.
 
-The portfolio is now a **Flask web application** with a PostgreSQL database, Jinja templates, an administrator dashboard, more JavaScript, responsive layouts, night mode and a more structured application architecture.
+The portfolio is now a Flask web application with a **PostgreSQL database**, Jinja templates, an administrator dashboard, more JavaScript, responsive layouts, night mode and a more structured application architecture.
 
-It is also my first project using an **online database**, which gave me the opportunity to learn what changes when your application and database are no longer sitting together on your own machine.
+It is also my first project and attempt at using an online database (SupaBase), which gave me the opportunity to learn how to create websites that would work online with a connected database and offline with a local database.
+
+Using SQL Alchemy 2.0 with Flask, the transition to using an online database was smooth as I just needed to append a database connection string to my environment variables and that did the trick.
 
 ---
 
@@ -25,7 +27,7 @@ It is also my first project using an **online database**, which gave me the oppo
 
 The previous version of the portfolio had already moved beyond the original static website. It used **Flask and SQLite3**, with the database stored locally inside the application's `instance/` directory.
 
-This version builds on that foundation by moving to a remotely hosted **PostgreSQL database through Supabase**, while also introducing a more structured application architecture and more frontend functionality.
+This version builds on that foundation by moving to a remotely hosted **PostgreSQL database**, while also introducing a more structured application architecture and more frontend functionality.
 
 | Area | Previous Portfolio | Current Portfolio |
 |---|---|---|
@@ -41,9 +43,13 @@ This version builds on that foundation by moving to a remotely hosted **PostgreS
 | **Image Storage** | Local/project assets | Cloudinary image uploads |
 | **Deployment** | Flask application with local database | Hosted Flask application with remote database and external image storage |
 
-The biggest change isn't simply moving from one database to another. It's getting experience with what happens when the database is **remote rather than local**, while also making the application easier to organise, maintain and extend.
+While I emphasis on the use of an online database, the true experience I learnt was using the SQL Alchemy database models to create and store tables and data. 
 
-It's essentially the same portfolio idea — just with fewer things living in one folder.
+Using this module, I was able to ake the whole website and test it using a local SQLite3 database, once complete, I used the connection string and it worked remotely.
+
+Another major update on this version is that I gathered intel on what a real project structure should look like for a large scale application and copied that over. 
+
+The idea was that if I can get the application structure, folders and files, then I would be able to replicate the same structure for all my projects and only adding and removing parts that require it. 
 
 ---
 
@@ -70,9 +76,8 @@ It's essentially the same portfolio idea — just with fewer things living in on
 The administrator area allows portfolio content to be managed without editing the public-facing templates.
 
 - Administrator login.
-- Create, edit and delete projects.
-- Create, edit and delete skills.
-- Upload project images.
+- Create, edit, and delete projects and skills.
+- Upload project images to Cloudinary and retrive link.
 - Manage database-driven content.
 - View dashboard statistics.
 
@@ -99,15 +104,15 @@ This is my first project where I've worked with an online database connection ra
 
 **SQLAlchemy** and **Flask-SQLAlchemy** are used for database interaction, while **Flask-Migrate/Alembic** handles database migrations.
 
-Projects, skills and user information are stored as database records and accessed through dedicated service functions.
+Using `Flask-Migrate` I was able to make change to my database models and structure without losing any data. 
 
-The database can therefore change without needing to rewrite the portfolio pages themselves — which is rather handy.
+This made it easy to adjust the database and it's models as required throughout development.
 
 ---
 
 ## 🛡️ Security
 
-Security became a much bigger consideration with this version of the project.
+As a standard practice, I use `Argon2` or  `Argon2-cffi` for password hashing, this is after I had learnt that Argon2 was an award winning hashing algorithm and is recommended to be used when storing senstive data like passwords.
 
 The application currently includes:
 
@@ -121,22 +126,32 @@ The application currently includes:
 - Environment variables for sensitive configuration.
 - `noindex, nofollow` metadata for administrator pages.
 
-This is a personal project rather than a production security platform, but implementing these features has given me practical experience with some of the security considerations involved in building web applications.
+I included some of these security features while looking at other projects and doing some digging with ChatGPT on what I could use to improve the security of a Flask website/application. 
+
+It turns out that securing a website has more to do with minimising the 'attack surface' from online threats.
+
+However, this is still early days and my focus is primarily on backend development right at this moment while learning to use JS and CSS properly to ensure a proper system is made.
+
+Once I can confidently make systems that look and work well, I would turn my attention to security as this is a whole topic that needs complete attention to learn and embed.
+
+Right at this moment, I would describe my ortfolio website to include what I found to be necessary to include.
 
 ---
 
 ## 🖼️ Image Uploads
 
-Project images can be uploaded through the administrator dashboard and are stored using **Cloudinary**.
+After recently discovering **Cloudinary**, I have included it on many of my projects and thats to enable the option of having more control over the data used throughout a system or application.
 
-Supported formats include:
+What I find with Cloudinary is that it is only a single transaction made and the process is simple, select an image that the CSP (Content Security Policy) allows and hit upload, the image url is retrieved and stored in the database.
+
+The problem with this is that a user my want to delete photo's already stored or use existing ones - this is something that I would also look for when it comes to making future improvements. 
+
+Supported image file formats include:
 
 - JPEG
 - JPG
 - PNG
 - WebP
-
-The resulting Cloudinary URL is stored with the relevant project in the database.
 
 ---
 
@@ -182,7 +197,9 @@ The application includes custom error pages for common HTTP errors:
 
 ## 📂 Project Structure
 
-The project uses a service-based structure to separate routes, database models, application logic, validation, templates and static assets.
+Earlier I mentioned the use of a project structure that I can replicate for every project I do, this is a basic version of that.
+
+This project structure works for most modern web applications I could want to make with Flask but does need some modifications.
 
 ```text
 Portfolio/
@@ -230,9 +247,7 @@ Portfolio/
 
 The main idea is to keep route handling, database operations and application logic from becoming one giant `app.py`.
 
-Because nobody wants to go looking for a database query in a 2,000-line file.
-
----
+It also helps prevent errors like `circular import errors`, which can occur when two or more files depend on each other.
 
 ## 🚀 Running Locally
 
@@ -284,7 +299,7 @@ CLOUDINARY_CLOUD_NAME=
 CLOUDINARY_URL=
 ```
 
-> **Important:** Never commit private credentials, secret keys or production configuration to the repository.
+> **Info:** I had some problems when it came to using the database string from supabase - installing psycopg and including that in the connection string helped make it work.
 
 ### 5. 🌱 Seed Data
 
@@ -312,10 +327,11 @@ Generate the password hash with Argon2 rather than storing a plain-text password
 
 The application checks whether the username already exists before creating the account, so the seed function can safely run during application startup.
 
+> **Important:** Creating a seed data is required for this project I have included an example in the file, follow the instructions within and it should work.
 
 ### 6. Configure the database
 
-Provide your own PostgreSQL/Supabase database connection and run the required migrations.
+The project defaults to using a local database where a connection string is not present in the `.env` file. 
 
 ```bash
 flask db upgrade
@@ -400,6 +416,8 @@ If you want to run your own version, you will need to configure your own:
 - Cloudinary account.
 - Environment variables.
 - Deployment environment.
+
+While all the code for this project is open source as I would like for other developers to use this, please do not use my personal photos or media.
 
 ---
 
