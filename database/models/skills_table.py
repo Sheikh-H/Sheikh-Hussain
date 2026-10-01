@@ -9,7 +9,7 @@ from extensions import db
 class Skill(db.Model):
     __tablename__ = "Skills_Table"
     skill_id: Mapped[int] = mapped_column(primary_key=True)
-    skill: Mapped[str] = mapped_column(String(15), nullable=False)
+    skill: Mapped[str] = mapped_column(String(10), nullable=False)
     description: Mapped[str | None] = mapped_column(String(), nullable=True)
     duration: Mapped[int] = mapped_column(Integer(), nullable=False)
     added: Mapped[datetime] = mapped_column(
