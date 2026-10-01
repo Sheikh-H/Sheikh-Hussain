@@ -424,7 +424,7 @@ While all the code for this project is open source as I would like for other dev
 ## 📄 Licence
 
 <p>
-  This project is licensed under the <b>MIT Licence</b> — see the <a href="./LICENCE">LICENCE</a> file for details.
+  This project is licensed under the <b>MIT Licence</b> see the <a href="./LICENCE">LICENCE</a> file for details.
 </p>
 
 <pre>
