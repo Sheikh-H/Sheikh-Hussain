@@ -5,7 +5,8 @@ from flask_wtf.csrf import CSRFError
 
 from config import Config
 from database.models import *
-from database.seed import seed_data
+
+# from database.seed import seed_data
 from extensions import csrf, db, init_cloudinary, limiter, migrate, server_session
 from routes import *
 from routes import admin
@@ -32,10 +33,10 @@ def create_app():
     server_session.init_app(app)
     init_cloudinary(app)
     init_security(app)
-    
+
     app.register_blueprint(main)
     app.register_blueprint(admin)
-    
+
     app.register_error_handler(CSRFError, csrf_error)
     app.register_error_handler(400, bad_request)
     app.register_error_handler(403, forbidden_page)
@@ -47,7 +48,7 @@ def create_app():
 
     with app.app_context():
         db.create_all()
-        seed_data()
+        # seed_data()
 
     return app
 
@@ -61,3 +62,6 @@ if __name__ == "__main__":
         host="0.0.0.0",
         port=port,
     )
+
+# To use seed data, please refer to the readme.md on GitHub
+# https://github.com/Sheikh-H/Sheikh-Hussain
