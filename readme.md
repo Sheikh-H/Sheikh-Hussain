@@ -286,7 +286,34 @@ CLOUDINARY_URL=
 
 > **Important:** Never commit private credentials, secret keys or production configuration to the repository.
 
-### 5. Configure the database
+### 5. 🌱 Seed Data
+
+The initial administrator account is created through the seed function located in:
+
+```text
+database/seed/
+```
+
+Before running the application, create your own seed user in `seed_data()` using the fields required by the `User` model.
+
+```python
+user = User(
+    fname="Your First Name",
+    sname="Your Last Name",
+    username="your-username",
+    email="your-email@example.com",
+    github="https://github.com/your-username",
+    linkedin="https://linkedin.com/in/your-profile",
+    password="YOUR_ARGON2_PASSWORD_HASH",
+)
+```
+
+Generate the password hash with Argon2 rather than storing a plain-text password.
+
+The application checks whether the username already exists before creating the account, so the seed function can safely run during application startup.
+
+
+### 6. Configure the database
 
 Provide your own PostgreSQL/Supabase database connection and run the required migrations.
 
@@ -294,7 +321,7 @@ Provide your own PostgreSQL/Supabase database connection and run the required mi
 flask db upgrade
 ```
 
-### 6. Start the application
+### 7. Start the application
 
 ```bash
 flask run
