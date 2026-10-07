@@ -20,6 +20,7 @@
   padding: 5px;
   transition: var(--transition-normal);
   box-shadow: var(--shadow-medium);
+  border: 1px solid transparent;
 }
 
 .skill-icon svg {
