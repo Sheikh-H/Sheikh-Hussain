@@ -27,7 +27,7 @@
 }
 
 .skill-card:hover {
-  border: 1px solid var(--colour-secondary);
+  border-color: var(--colour-secondary);
 }
 
 .skill-header {
