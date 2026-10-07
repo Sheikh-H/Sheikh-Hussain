@@ -43,6 +43,7 @@
   flex-direction: column;
   gap: 10px;
   justify-content: space-between;
+  border: 1px solid transparent;
 }
 
 .project:hover {
