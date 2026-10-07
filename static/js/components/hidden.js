@@ -35,7 +35,7 @@ const skillObserver = new IntersectionObserver(
         entry.target.classList.add("active");
         setTimeout(() => {
           bar.style.width = `${percent}%`;
-        }, 500);
+        }, 800);
         skillObserver.unobserve(entry.target);
       }
     });
