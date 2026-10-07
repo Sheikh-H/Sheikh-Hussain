@@ -2,7 +2,6 @@ const about = document.querySelector(".about-section");
 const intro = document.querySelector(".intro-section");
 const projects = document.querySelectorAll(".project");
 const skills = document.querySelectorAll(".skill-card");
-const skillCards = document.querySelectorAll(".skill-card");
 const projectCards = document.querySelectorAll(".project-item");
 
 const observer = new IntersectionObserver(
@@ -45,12 +44,6 @@ const skillObserver = new IntersectionObserver(
     threshold: 0.2,
   },
 );
-
-if (skillCards) {
-  skillCards.forEach((card) => {
-    skillObserver.observe(card);
-  });
-}
 
 if (skills) {
   skills.forEach((skill) => {
