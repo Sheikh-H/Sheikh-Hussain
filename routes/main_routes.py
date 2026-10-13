@@ -1,5 +1,6 @@
 from flask import (
     Blueprint,
+    Response,
     abort,
     current_app,
     redirect,
@@ -68,3 +69,22 @@ def add_like(project_id):
 @main.route("/robots.txt")
 def robots_txt():
     return send_from_directory(current_app.static_folder, "robots.txt")
+
+
+@main.route("/sitemap.xml", methods=["GET"])
+def sitemap_xml():
+    pages = [
+        url_for("main.home", _external=True),
+        url_for("main.projects_page", _external=True),
+    ]
+    xml = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
+    for page in pages:
+        xml.append(f"<url><loc>{page}</loc></url>")
+    xml.append("</urlset>")
+    return Response(
+        "\n".join(xml),
+        mimetype="application/xml",
+    )
