@@ -48,6 +48,7 @@
 
 .project:hover {
   border-color: var(--colour-secondary);
+  transition: all 0.1s ease-in-out;
 }
 
 .project img {

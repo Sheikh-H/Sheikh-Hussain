@@ -15,6 +15,7 @@
 .project-item {
   background-color: var(--colour-surface);
   box-shadow: var(--shadow-medium);
+  border: 1px solid transparent;
   border-radius: 5px;
   display: flex;
   padding: 5px;
@@ -23,6 +24,7 @@
 
 .project-item:hover {
   border: 1px solid var(--colour-secondary);
+  transition: all 0.1s ease-in-out;
 }
 
 .project-item img {
