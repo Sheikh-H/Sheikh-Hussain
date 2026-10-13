@@ -29,10 +29,10 @@ const skillObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        const bar = entry.target.querySelector(".skill-grade-inner");
-        const duration = Number(bar.dataset.duration);
-        const percent = Math.min((duration / 36) * 100, 100);
         entry.target.classList.add("active");
+        const bar = entry.target.querySelector(".skill-grade-inner");
+        const duration = Number(bar.dataset.duration) || 0;
+        const percent = Math.min((duration / 36) * 100, 100);
         setTimeout(() => {
           bar.style.width = `${percent}%`;
         }, 800);
@@ -41,7 +41,7 @@ const skillObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.2,
+    threshold: 0.1,
   },
 );
 

@@ -23,6 +23,19 @@
   border: 1px solid transparent;
 }
 
+.skill-card.hidden-up {
+  opacity: 0;
+  transform: translateY(150px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.skill-card.hidden-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .skill-icon svg {
   fill: var(--colour-primary);
 }

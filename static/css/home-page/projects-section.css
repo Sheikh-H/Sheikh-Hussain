@@ -28,7 +28,7 @@
 
 .projects {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   justify-content: center;
   padding: 15px;
   gap: 20px;
